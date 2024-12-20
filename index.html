@@ -105,143 +105,1525 @@
 
     <script>
 const questions = [
-    // Physics Formulas True/False Questions
+    // -----------------------------
+    // Chapter 7 (30 questions)
+    // -----------------------------
+    // True (Ch7 - Q1)
     {
         type: 'tf',
-        question: 'The formula for the center of mass of a system is \\( \\vec{r}_{\\text{cm}} = \\frac{\\sum m_i \\vec{r}_i}{\\sum m_i} \\).',
+        question: 'The formula for the center of mass of a system is \\( \\vec{r}_{\\text{cm}} = \\frac{\\sum m_i \\vec{r}_i}{\\sum m_i} \\). (Ch7 - Q1)\n(بالعربية: صيغة مركز الكتلة لنظام هي \\( \\vec{r}_{\\text{cm}} = \\frac{\\sum m_i \\vec{r}_i}{\\sum m_i} \\)؟)',
         correct: true,
         explanations: [
-            'Correct! This is the standard formula for calculating the center of mass.',
-            'Incorrect. This is indeed the correct formula for the center of mass.'
+            'Correct! This is indeed the standard formula for the center of mass.',
+            'Incorrect. The given formula is correct for the center of mass.'
         ]
     },
+    // True (Ch7 - Q2)
     {
         type: 'tf',
-        question: 'The linear momentum of a system is given by \\( \\vec{p} = \\sum m_i \\vec{v}_i \\).',
+        question: 'The linear momentum of a system is given by \\( \\mathbf{P} = \sum m_i \\mathbf{v}_i \\). (Ch7 - Q2)\n(بالعربية: الزخم الخطي للنظام معطى بـ \\( \\mathbf{P} = \sum m_i \\mathbf{v}_i \\)؟)',
         correct: true,
         explanations: [
-            'Correct! The total linear momentum of a system is the sum of the momenta of individual particles.',
-            'Incorrect. This formula is correct for the linear momentum of a system.'
+            'Correct! The total linear momentum is the vector sum of all individual momenta.',
+            'Incorrect. This formula is indeed correct for linear momentum.'
         ]
     },
+    // True (Ch7 - Q3)
     {
         type: 'tf',
-        question: 'Newton’s second law for systems is \\( M \\vec{a}_{\\text{cm}} = \\sum \\vec{F}_{\\text{ext}} + \\sum \\vec{F}_{\\text{int}} \\).',
-        correct: false,
-        explanations: [
-            'Incorrect. Internal forces cancel out, so only external forces contribute: \\( M \\vec{a}_{\\text{cm}} = \\sum \\vec{F}_{\\text{ext}} \\).',
-            'Correct! Internal forces cancel, leaving only external forces in Newton’s second law for systems.'
-        ]
-    },
-    {
-        type: 'tf',
-        question: 'The moment of inertia about a given axis is defined as \\( I = \\int r^3 \\, dm \\).',
-        correct: false,
-        explanations: [
-            'Incorrect. The correct formula is \\( I = \\int r^2 \\, dm \\), not \\( r^3 \\).',
-            'Correct! The power of \\( r \\) in the formula for moment of inertia is 2, not 3.'
-        ]
-    },
-    {
-        type: 'tf',
-        question: 'The torque on a rigid body is related to angular acceleration by \\( \\tau = I \\alpha \\).',
+        question: 'The angular momentum of a system about an origin can be written as \\( \\mathbf{L} = \sum_{i} (\\mathbf{r}_i \times m_i \\mathbf{v}_i) \\). (Ch7 - Q3)\n(بالعربية: يمكن كتابة العزم الزاوي للنظام حول نقطة الأصل بـ \\( \\mathbf{L} = \sum_{i} (\\mathbf{r}_i \times m_i \\mathbf{v}_i) \\)؟)',
         correct: true,
         explanations: [
-            'Correct! Torque is the product of moment of inertia and angular acceleration.',
-            'Incorrect. This formula correctly relates torque and angular acceleration.'
+            'Correct! This is the standard definition of the total angular momentum of a system.',
+            'Incorrect. This is the correct definition of angular momentum for a system of particles.'
         ]
     },
+    // True (Ch7 - Q4)
     {
         type: 'tf',
-        question: 'The angular momentum of a rigid body is given by \\( \\vec{L} = \\int \\vec{r} \\times m \\vec{v} \\, dm \\).',
+        question: 'The reduced mass \\( \\mu \\) for two masses \\( m_1 \\) and \\( m_2 \\) is given by \\( \\mu = \\frac{m_1 m_2}{m_1 + m_2} \\). (Ch7 - Q4)\n(بالعربية: الكتلة المخفضة لجسمين هي \\( \\mu = \\frac{m_1 m_2}{m_1 + m_2} \\)؟)',
         correct: true,
         explanations: [
-            'Correct! This formula calculates the angular momentum for a continuous system.',
-            'Incorrect. This is the correct formula for angular momentum in a continuous system.'
+            'Correct! This is the correct formula for reduced mass.',
+            'Incorrect. The given formula is indeed correct for the reduced mass.'
         ]
     },
+    // True (Ch7 - Q5)
     {
         type: 'tf',
-        question: 'The rotational kinetic energy of a rigid body is \\( T = \\frac{1}{2} I \\alpha^2 \\).',
-        correct: false,
-        explanations: [
-            'Incorrect. The correct formula is \\( T = \\frac{1}{2} I \\omega^2 \\), using angular velocity \\( \\omega \\).',
-            'Correct! Rotational kinetic energy uses angular velocity, not angular acceleration.'
-        ]
-    },
-    {
-        type: 'tf',
-        question: 'The total kinetic energy of a system can be expressed as \\( T = \\frac{1}{2} M v_{\\text{cm}}^2 + \\frac{1}{2} I \\omega^2 \\).',
+        question: 'If no external forces act on a system, its total linear momentum remains constant. (Ch7 - Q5)\n(بالعربية: إذا لم تؤثر قوى خارجية على النظام، فإن زخمه الخطي الكلي يبقى ثابتاً؟)',
         correct: true,
         explanations: [
-            'Correct! This combines translational and rotational kinetic energies.',
-            'Incorrect. This is the correct total kinetic energy formula for a system.'
+            'Correct! Conservation of linear momentum states this clearly.',
+            'Incorrect. In the absence of external forces, linear momentum is conserved.'
         ]
     },
+    // False (Ch7 - Q6)
     {
         type: 'tf',
-        question: 'Euler’s equations for rotational motion in three dimensions include \\( I_1 \\dot{\\omega}_1 + (I_2 - I_3) \\omega_2 \\omega_3 = \\tau_1 \\).',
+        question: 'The coefficient of restitution is always greater than 1 for all physical collisions. (Ch7 - Q6)\n(بالعربية: معامل الارتداد يكون دائماً أكبر من 1 لجميع التصادمات الفيزيائية؟)',
         correct: false,
         explanations: [
-            'Incorrect. The correct formula is \\( I_1 \\dot{\\omega}_1 - (I_2 - I_3) \\omega_2 \\omega_3 = \\tau_1 \\).',
-            'Correct! The sign between terms involving moments of inertia is negative.'
+            'Incorrect. The coefficient of restitution typically ranges from 0 to 1.',
+            'Correct! The coefficient of restitution cannot exceed 1 for normal physical collisions.'
         ]
     },
+    // False (Ch7 - Q7)
     {
         type: 'tf',
-        question: 'Lagrange’s equations are derived from the formula \\( \\frac{d}{dt} \\left( \\frac{\\partial L}{\\partial \\dot{q}_j} \\right) - \\frac{\\partial L}{\\partial q_j} = 0 \\).',
+        question: 'For a one-dimensional elastic collision, the relative speed of approach before collision is not equal to the relative speed of separation after collision. (Ch7 - Q7)\n(بالعربية: في تصادم مرن أحادي البعد، السرعة النسبية للتقارب قبل التصادم لا تساوي السرعة النسبية للتباعد بعده؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. In a perfectly elastic one-dimensional collision, these speeds are equal in magnitude.',
+            'Correct! In an elastic collision, the relative speed of approach equals the relative speed of separation.'
+        ]
+    },
+    // True (Ch7 - Q8)
+    {
+        type: 'tf',
+        question: 'If two masses interact only with each other under a central force, their motion can be reduced to a one-body problem with the reduced mass. (Ch7 - Q8)\n(بالعربية: إذا تفاعلت كتلتان مع بعضهما فقط بقوة مركزية، يمكن تبسيط المشكلة إلى مشكلة ذات جسم واحد بكتلة مخفضة؟)',
         correct: true,
         explanations: [
-            'Correct! This is the fundamental form of Lagrange’s equations.',
-            'Incorrect. This is the correct formula for Lagrange’s equations.'
+            'Correct! The two-body problem can be simplified using the concept of reduced mass.',
+            'Incorrect. The use of reduced mass is exactly how we simplify the two-body problem.'
         ]
     },
+    // False (Ch7 - Q9)
     {
         type: 'tf',
-        question: 'The Lagrangian function is defined as \\( L = V - T \\).',
+        question: 'The rocket equation without external forces is given by \\( v = v_{\\text{rel}} / (m_0/m) \\). (Ch7 - Q9)\n(بالعربية: معادلة الصاروخ بدون قوى خارجية هي \\( v = v_{\\text{rel}} / (m_0/m) \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. The Lagrangian is \\( L = T - V \\), not \\( V - T \\).',
-            'Correct! The Lagrangian function is \\( T - V \\).'
+            'Incorrect. The correct rocket equation is \\( v = v_{\\text{rel}} \ln(m_0/m) \\).',
+            'Correct! The formula given is incorrect; it should involve a logarithm.'
         ]
     },
+    // True (Ch7 - Q10)
     {
         type: 'tf',
-        question: 'Hamilton’s principle states \\( \\delta \\int_{t_1}^{t_2} T \\, dt = 0 \\).',
-        correct: false,
-        explanations: [
-            'Incorrect. The correct integral involves the Lagrangian: \\( \\delta \\int_{t_1}^{t_2} L \\, dt = 0 \\).',
-            'Correct! Hamilton’s principle uses the Lagrangian, not just the kinetic energy.'
-        ]
-    },
-    {
-        type: 'tf',
-        question: 'The angular frequency of a simple harmonic oscillator is \\( \\omega = \\sqrt{\\frac{m}{k}} \\).',
-        correct: false,
-        explanations: [
-            'Incorrect. The correct formula is \\( \\omega = \\sqrt{\\frac{k}{m}} \\), with \\( k \\) in the numerator.',
-            'Correct! The stiffness constant \\( k \\) should be in the numerator.'
-        ]
-    },
-    {
-        type: 'tf',
-        question: 'For coupled oscillators, the general motion is \\( q(t) = A_1 \\sin(\\omega_1 t) + A_2 \\sin(\\omega_2 t) \\).',
-        correct: false,
-        explanations: [
-            'Incorrect. The correct formula uses cosine: \\( q(t) = A_1 \\cos(\\omega_1 t) + A_2 \\cos(\\omega_2 t) \\).',
-            'Correct! The general motion formula for coupled oscillators involves cosine, not sine.'
-        ]
-    },
-    {
-        type: 'tf',
-        question: 'The energy of a simple harmonic oscillator is given by \\( E = \\frac{1}{2} k x^2 + \\frac{1}{2} m v^2 \\).',
+        question: 'In a perfectly inelastic collision, the colliding bodies stick together and move with a common velocity after impact. (Ch7 - Q10)\n(بالعربية: في تصادم عديم المرونة تماماً، تتلاصق الأجسام المتصادمة وتتحرك بسرعة مشتركة بعد التصادم؟)',
         correct: true,
         explanations: [
-            'Correct! This formula includes both potential and kinetic energy terms.',
-            'Incorrect. This is the correct formula for the energy of a simple harmonic oscillator.'
+            'Correct! That is the definition of a perfectly inelastic collision.',
+            'Incorrect. Perfectly inelastic collisions do involve the bodies sticking together.'
+        ]
+    },
+    // False (Ch7 - Q11)
+    {
+        type: 'tf',
+        question: 'The center of mass motion of a system is influenced by internal forces only. (Ch7 - Q11)\n(بالعربية: حركة مركز الكتلة لنظام تتأثر فقط بالقوى الداخلية؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The center of mass motion is only influenced by external forces.',
+            'Correct! Internal forces do not affect the motion of the center of mass.'
+        ]
+    },
+    // True (Ch7 - Q12)
+    {
+        type: 'tf',
+        question: 'If the net external torque on a system is zero, its total angular momentum remains constant. (Ch7 - Q12)\n(بالعربية: إذا كان عزم الدوران الخارجي الكلي صفراً، يبقى العزم الزاوي الكلي للنظام ثابتاً؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the law of conservation of angular momentum.',
+            'Incorrect. Angular momentum is conserved if external torque is zero.'
+        ]
+    },
+    // False (Ch7 - Q13)
+    {
+        type: 'tf',
+        question: 'The reduced mass is always equal to the smaller of the two masses involved. (Ch7 - Q13)\n(بالعربية: الكتلة المخفضة تساوي دائماً الكتلة الأصغر بين الكتلتين؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The reduced mass is \\( \mu = \frac{m_1 m_2}{m_1 + m_2} \\), not simply the smaller mass.',
+            'Correct! Reduced mass is a specific combination, not just the smaller mass.'
+        ]
+    },
+    // True (Ch7 - Q14)
+    {
+        type: 'tf',
+        question: 'In the absence of external forces, the center of mass of a system moves with constant velocity. (Ch7 - Q14)\n(بالعربية: في غياب القوى الخارجية، يتحرك مركز كتلة النظام بسرعة ثابتة؟)',
+        correct: true,
+        explanations: [
+            'Correct! This follows from the conservation of linear momentum.',
+            'Incorrect. Without external forces, the center of mass moves uniformly.'
+        ]
+    },
+    // False (Ch7 - Q15)
+    {
+        type: 'tf',
+        question: 'The coefficient of restitution for a perfectly inelastic collision is 1. (Ch7 - Q15)\n(بالعربية: معامل الارتداد في التصادم عديم المرونة تماماً يساوي 1؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. For a perfectly inelastic collision, e = 0.',
+            'Correct! In a perfectly inelastic collision, e = 0, not 1.'
+        ]
+    },
+    // True (Ch7 - Q16)
+    {
+        type: 'tf',
+        question: 'For a two-body gravitational problem, transforming to the center of mass frame reduces it to a single particle of mass \\( \mu \\) moving in a potential. (Ch7 - Q16)\n(بالعربية: في مشكلة جسمين تحت تأثير الجاذبية، التحويل إلى إطار مركز الكتلة يحولها إلى جسيم واحد بكتلة مخفضة؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the standard approach to solve two-body problems.',
+            'Incorrect. The use of reduced mass is the key simplification here.'
+        ]
+    },
+    // False (Ch7 - Q17)
+    {
+        type: 'tf',
+        question: 'If the external force on a system is non-zero, the total momentum remains constant. (Ch7 - Q17)\n(بالعربية: إذا كانت القوة الخارجية على النظام غير معدومة، يبقى زخمه ثابتاً؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. A non-zero external force changes the total momentum.',
+            'Correct! Total momentum changes if an external force acts.'
+        ]
+    },
+    // True (Ch7 - Q18)
+    {
+        type: 'tf',
+        question: 'In an elastic collision, both kinetic energy and momentum are conserved. (Ch7 - Q18)\n(بالعربية: في التصادم المرن، كلا الطاقة الحركية والزخم محفوظان؟)',
+        correct: true,
+        explanations: [
+            'Correct! That is the definition of an elastic collision.',
+            'Incorrect. By definition, elastic collisions conserve both energy and momentum.'
+        ]
+    },
+    // False (Ch7 - Q19)
+    {
+        type: 'tf',
+        question: 'The rocket equation includes a factor of \\( (m/m_0) \\) multiplied directly, without a logarithm. (Ch7 - Q19)\n(بالعربية: معادلة الصاروخ تتضمن عاملاً \\( (m/m_0) \\) مضروباً مباشرة بدون لوغاريتم؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The correct Tsiolkovsky rocket equation uses a natural logarithm: \\( v = v_{rel} \ln(m_0/m) \\).',
+            'Correct! The equation must include a logarithm, not just a ratio.'
+        ]
+    },
+    // True (Ch7 - Q20)
+    {
+        type: 'tf',
+        question: 'In an inelastic collision, kinetic energy is not conserved, but momentum is still conserved. (Ch7 - Q20)\n(بالعربية: في التصادم غير المرن، لا تحفظ الطاقة الحركية ولكن الزخم يبقى محفوظاً؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the main difference between elastic and inelastic collisions.',
+            'Incorrect. Momentum is always conserved, even if KE is not.'
+        ]
+    },
+    // False (Ch7 - Q21)
+    {
+        type: 'tf',
+        question: 'The definition of the center of mass depends on the velocity of the system. (Ch7 - Q21)\n(بالعربية: يعتمد تعريف مركز الكتلة على سرعة النظام؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The center of mass is defined purely in terms of positions and masses, not velocities.',
+            'Correct! The COM is defined from masses and positions, not velocity.'
+        ]
+    },
+    // True (Ch7 - Q22)
+    {
+        type: 'tf',
+        question: 'When analyzing two-body problems, using the reduced mass simplifies the equations of motion. (Ch7 - Q22)\n(بالعربية: عند تحليل مشاكل الجسمين، استخدام الكتلة المخفضة يبسط معادلات الحركة؟)',
+        correct: true,
+        explanations: [
+            'Correct! Reduced mass is a standard technique to simplify two-body problems.',
+            'Incorrect. Reduced mass is indeed used for simplification.'
+        ]
+    },
+    // False (Ch7 - Q23)
+    {
+        type: 'tf',
+        question: 'If the coefficient of restitution is 0, the collision is perfectly elastic. (Ch7 - Q23)\n(بالعربية: إذا كان معامل الارتداد يساوي 0، فإن التصادم مرن تماماً؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. If e=0, the collision is perfectly inelastic, not elastic.',
+            'Correct! e=0 corresponds to a perfectly inelastic collision.'
+        ]
+    },
+    // True (Ch7 - Q24)
+    {
+        type: 'tf',
+        question: 'The rocket equation assumes mass is lost from the rocket at a specific exhaust velocity. (Ch7 - Q24)\n(بالعربية: تفترض معادلة الصاروخ فقدان كتلة الصاروخ بسرعه محدده للعادم؟)',
+        correct: true,
+        explanations: [
+            'Correct! The Tsiolkovsky rocket equation is based on a constant exhaust velocity.',
+            'Incorrect. The equation does assume a specific (constant) exhaust velocity.'
+        ]
+    },
+    // False (Ch7 - Q25)
+    {
+        type: 'tf',
+        question: 'In a system of particles, internal forces can change the total momentum of the system. (Ch7 - Q25)\n(بالعربية: في نظام من الجسيمات، يمكن للقوى الداخلية تغيير الزخم الكلي للنظام؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Internal forces come in equal and opposite pairs, leaving total momentum unchanged.',
+            'Correct! Internal forces do not affect total momentum.'
+        ]
+    },
+    // True (Ch7 - Q26)
+    {
+        type: 'tf',
+        question: 'Angular momentum conservation requires that the net external torque be zero. (Ch7 - Q26)\n(بالعربية: يتطلب حفظ العزم الزاوي أن يكون عزم الدوران الخارجي الكلي مساوياً للصفر؟)',
+        correct: true,
+        explanations: [
+            'Correct! Zero net external torque means no change in angular momentum.',
+            'Incorrect. Without external torque, angular momentum is conserved.'
+        ]
+    },
+    // False (Ch7 - Q27)
+    {
+        type: 'tf',
+        question: 'The coefficient of restitution relates linear momenta instead of relative velocities. (Ch7 - Q27)\n(بالعربية: معامل الارتداد يربط بين الزخم الخطي بدلاً من السرعات النسبية؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The coefficient of restitution is defined in terms of relative velocities.',
+            'Correct! It’s about relative velocities, not momenta.'
+        ]
+    },
+    // True (Ch7 - Q28)
+    {
+        type: 'tf',
+        question: 'When two particles collide elastically in one dimension, their total kinetic energy and momentum remain the same before and after the collision. (Ch7 - Q28)\n(بالعربية: عندما يصطدم جسيمان بشكل مرن في بعد واحد، تبقى طاقتهما الحركية وزخمهما قبل وبعد التصادم كما هي؟)',
+        correct: true,
+        explanations: [
+            'Correct! That is the definition of an elastic collision.',
+            'Incorrect. Elastic collisions conserve both KE and momentum.'
+        ]
+    },
+    // True (Ch7 - Q29)
+    {
+        type: 'tf',
+        question: 'The Tsiolkovsky rocket equation is \\( v = v_{rel} \ln(\frac{m_0}{m}) \\). (Ch7 - Q29)\n(بالعربية: معادلة الصاروخ لتسيولكوفسكي هي \\( v = v_{rel} \ln(\frac{m_0}{m}) \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the well-known Tsiolkovsky rocket equation.',
+            'Incorrect. This formula is correct for the rocket equation.'
+        ]
+    },
+    // False (Ch7 - Q30)
+    {
+        type: 'tf',
+        question: 'If the external force is zero, the center of mass of a system must remain at rest. (Ch7 - Q30)\n(بالعربية: إذا كانت القوة الخارجية صفراً، فإن مركز الكتلة للنظام يجب أن يبقى ساكناً؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. With no external force, the center of mass moves with constant velocity, which could be non-zero.',
+            'Correct! It can move at constant velocity, not necessarily remain at rest.'
+        ]
+    },
+
+    // -----------------------------
+    // Chapter 8 (30 questions)
+    // -----------------------------
+    // True (Ch8 - Q1)
+    {
+        type: 'tf',
+        question: 'The moment of inertia about a given axis is defined as \\( I = \int r^2 \, dm \\). (Ch8 - Q1)\n(بالعربية: عزم القصور الذاتي حول محور معطى يعرف بـ \\( I = \int r^2 \, dm \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the fundamental definition of moment of inertia.',
+            'Incorrect. This is indeed the correct definition.'
+        ]
+    },
+    // True (Ch8 - Q2)
+    {
+        type: 'tf',
+        question: 'The parallel axis theorem states \\( I = I_{cm} + M d^2 \\). (Ch8 - Q2)\n(بالعربية: ينص مبدأ المحور الموازي على \\( I = I_{cm} + M d^2 \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the correct formula for the parallel axis theorem.',
+            'Incorrect. This formula is correct.'
+        ]
+    },
+    // False (Ch8 - Q3)
+    {
+        type: 'tf',
+        question: 'The radius of gyration is defined as \\( k = \frac{I}{M} \\). (Ch8 - Q3)\n(بالعربية: نصف قطر الدوران يعرف بـ \\( k = \frac{I}{M} \\)؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The radius of gyration is \\( k = \sqrt{\frac{I}{M}} \\), not \\( \frac{I}{M} \\).',
+            'Correct! It should be the square root of I/M.'
+        ]
+    },
+    // True (Ch8 - Q4)
+    {
+        type: 'tf',
+        question: 'For a thin rod rotating about one end perpendicular to its length, \\( I = \frac{1}{3} M L^2 \\). (Ch8 - Q4)\n(بالعربية: لقضيب رفيع يدور حول أحد طرفيه عمودياً على طوله، \\( I = \frac{1}{3} M L^2 \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is a standard moment of inertia result.',
+            'Incorrect. This known result is indeed correct.'
+        ]
+    },
+    // True (Ch8 - Q5)
+    {
+        type: 'tf',
+        question: 'The torque is related to angular acceleration by \\( \tau = I \alpha \\). (Ch8 - Q5)\n(بالعربية: العزم مرتبط بالتسارع الزاوي بـ \\( \tau = I \alpha \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the rotational analogue of F = ma.',
+            'Incorrect. This is the correct rotational dynamics formula.'
+        ]
+    },
+    // True (Ch8 - Q6)
+    {
+        type: 'tf',
+        question: 'The kinetic energy of a rigid body rotating about a fixed axis is given by \\( T = \tfrac{1}{2} I \omega^2 \\). (Ch8 - Q6)\n(بالعربية: الطاقة الحركية لجسم صلب يدور حول محور ثابت هي \\( T = \frac{1}{2} I \omega^2 \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the standard formula for rotational kinetic energy.',
+            'Incorrect. This is indeed the correct formula.'
+        ]
+    },
+    // False (Ch8 - Q7)
+    {
+        type: 'tf',
+        question: 'The moment of inertia of a solid sphere about its diameter is \\( I = \frac{2}{3} M R^2 \\). (Ch8 - Q7)\n(بالعربية: عزم القصور الذاتي لكرة صلبة حول قطرها هو \\( \frac{2}{3} M R^2 \\)؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. For a solid sphere about its diameter, \\( I = \frac{2}{5} M R^2 \\).',
+            'Correct! The correct formula is 2/5, not 2/3.'
+        ]
+    },
+    // True (Ch8 - Q8)
+    {
+        type: 'tf',
+        question: 'The parallel axis theorem can be used to find the moment of inertia about any axis parallel to an axis through the center of mass. (Ch8 - Q8)\n(بالعربية: يمكن استخدام مبدأ المحور الموازي لإيجاد عزم القصور حول أي محور موازٍ لمحور يمر بمركز الكتلة؟)',
+        correct: true,
+        explanations: [
+            'Correct! That’s exactly what the parallel axis theorem states.',
+            'Incorrect. The theorem does allow that.'
+        ]
+    },
+    // False (Ch8 - Q9)
+    {
+        type: 'tf',
+        question: 'For a thin rod about its center, the moment of inertia is \\( I = \frac{1}{3} M L^2 \\). (Ch8 - Q9)\n(بالعربية: لقضيب رفيع حول مركزه، عزم القصور هو \\( \frac{1}{3} M L^2 \\)؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. About its center, it should be \\( I = \frac{1}{12} M L^2 \\).',
+            'Correct! The correct value is 1/12, not 1/3.'
+        ]
+    },
+    // True (Ch8 - Q10)
+    {
+        type: 'tf',
+        question: 'A physical pendulum’s period is given by \\( T = 2\pi \sqrt{\frac{I}{M g L}} \\). (Ch8 - Q10)\n(بالعربية: زمن دورة البندول الفيزيائي معطى بـ \\( T = 2\pi \sqrt{\frac{I}{M g L}} \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the standard formula for a physical pendulum.',
+            'Incorrect. This known formula is correct.'
+        ]
+    },
+    // False (Ch8 - Q11)
+    {
+        type: 'tf',
+        question: 'If a rigid body rolls without slipping, then \\( v = 2 r \omega \\). (Ch8 - Q11)\n(بالعربية: إذا تدحرج جسم صلب دون انزلاق، فعندئذٍ \\( v = 2 r \omega \\)؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The correct condition for rolling without slipping is \\( v = r \omega \\).',
+            'Correct! It should be v = r ω, not 2r ω.'
+        ]
+    },
+    // True (Ch8 - Q12)
+    {
+        type: 'tf',
+        question: 'The angular momentum of a rigid body rotating about a fixed axis is \\( L = I \omega \\). (Ch8 - Q12)\n(بالعربية: العزم الزاوي لجسم صلب يدور حول محور ثابت هو \\( L = I \omega \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the standard relation for angular momentum.',
+            'Incorrect. This is indeed correct for a fixed axis rotation.'
+        ]
+    },
+    // True (Ch8 - Q13)
+    {
+        type: 'tf',
+        question: 'For rolling motion, the total kinetic energy is the sum of translational and rotational parts: \\( T = \frac{1}{2} M v_{cm}^2 + \frac{1}{2} I_{cm}\omega^2 \\). (Ch8 - Q13)\n(بالعربية: في حالة التدحرج، الطاقة الحركية الكلية هي مجموع طاقة انتقالية ودورانية: \\( T = \frac{1}{2} M v_{cm}^2 + \frac{1}{2} I_{cm}\omega^2 \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the correct expression for kinetic energy of a rolling body.',
+            'Incorrect. This formula is indeed correct.'
+        ]
+    },
+    // False (Ch8 - Q14)
+    {
+        type: 'tf',
+        question: 'The moment of inertia is independent of the choice of axis. (Ch8 - Q14)\n(بالعربية: عزم القصور الذاتي لا يعتمد على اختيار المحور؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The moment of inertia depends on the axis chosen.',
+            'Correct! It does depend on the axis.'
+        ]
+    },
+    // True (Ch8 - Q15)
+    {
+        type: 'tf',
+        question: 'The radius of gyration gives a single length that characterizes how mass is distributed around the axis. (Ch8 - Q15)\n(بالعربية: يعطي نصف قطر الدوران طولاً واحداً يميز كيفية توزيع الكتلة حول المحور؟)',
+        correct: true,
+        explanations: [
+            'Correct! That’s the purpose of the radius of gyration.',
+            'Incorrect. Radius of gyration does provide such a characteristic length.'
+        ]
+    },
+    // False (Ch8 - Q16)
+    {
+        type: 'tf',
+        question: 'The kinetic energy of a rotating body is given by \\( T = \frac{1}{4} I \omega^2 \\). (Ch8 - Q16)\n(بالعربية: الطاقة الحركية لجسم يدور هي \\( \frac{1}{4} I \omega^2 \\)؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The correct formula is \\( T = \frac{1}{2} I \omega^2 \\).',
+            'Correct! It should be half, not a quarter.'
+        ]
+    },
+    // True (Ch8 - Q17)
+    {
+        type: 'tf',
+        question: 'For a hollow cylinder about its central axis, the moment of inertia is \\( I = M R^2 \\). (Ch8 - Q17)\n(بالعربية: للأسطوانة الجوفاء حول محورها المركزي، عزم القصور هو \\( I = M R^2 \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the known moment of inertia for a hollow cylinder.',
+            'Incorrect. This standard formula is correct.'
+        ]
+    },
+    // False (Ch8 - Q18)
+    {
+        type: 'tf',
+        question: 'The physical pendulum formula for period is the same as that of a simple pendulum: \\( T = 2\pi \sqrt{\frac{L}{g}} \\). (Ch8 - Q18)\n(بالعربية: صيغة زمن دورة البندول الفيزيائي هي نفسها للبندول البسيط: \\( T = 2\pi \sqrt{\frac{L}{g}} \\)؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The physical pendulum formula involves the moment of inertia: \\( T = 2\pi \sqrt{\frac{I}{M g L}} \\).',
+            'Correct! They are not the same formula.'
+        ]
+    },
+    // True (Ch8 - Q19)
+    {
+        type: 'tf',
+        question: 'The parallel axis theorem helps relate the moment of inertia about the center of mass axis to an axis parallel to it through any other point. (Ch8 - Q19)\n(بالعربية: يساعد مبدأ المحور الموازي في ربط عزم القصور حول محور مركز الكتلة بمحور موازٍ له عبر أي نقطة أخرى؟)',
+        correct: true,
+        explanations: [
+            'Correct! That’s the purpose of the parallel axis theorem.',
+            'Incorrect. This is precisely what the theorem does.'
+        ]
+    },
+    // False (Ch8 - Q20)
+    {
+        type: 'tf',
+        question: 'A solid cylinder’s moment of inertia about its central axis is \\( I = \frac{1}{4} M R^2 \\). (Ch8 - Q20)\n(بالعربية: عزم القصور لأسطوانة مصمتة حول محورها المركزي هو \\( \frac{1}{4} M R^2 \\)؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. For a solid cylinder, \\( I = \frac{1}{2} M R^2 \\).',
+            'Correct! The known formula is 1/2 M R², not 1/4.'
+        ]
+    },
+    // True (Ch8 - Q21)
+    {
+        type: 'tf',
+        question: 'For a thin rod about its end, the moment of inertia is larger than about its center. (Ch8 - Q21)\n(بالعربية: لقضيب رفيع حول نهايته، عزم القصور أكبر منه حول مركزه؟)',
+        correct: true,
+        explanations: [
+            'Correct! Moving the axis away from the center increases I.',
+            'Incorrect. It is indeed larger at the end than at the center.'
+        ]
+    },
+    // True (Ch8 - Q22)
+    {
+        type: 'tf',
+        question: 'If a rolling object speeds up without slipping, both its translational and rotational kinetic energies increase. (Ch8 - Q22)\n(بالعربية: إذا تسارع جسم متدحرج دون انزلاق، فإن طاقته الحركية الانتقالية والدورانية تزداد؟)',
+        correct: true,
+        explanations: [
+            'Correct! Increasing speed increases both parts of its kinetic energy.',
+            'Incorrect. Both energies indeed increase.'
+        ]
+    },
+    // False (Ch8 - Q23)
+    {
+        type: 'tf',
+        question: 'The radius of gyration is defined using a cube root: \\( k = \sqrt[3]{\frac{I}{M}} \\). (Ch8 - Q23)\n(بالعربية: يعرف نصف قطر الدوران باستخدام الجذر التكعيبي: \\( k = \sqrt[3]{\frac{I}{M}} \\)؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The radius of gyration uses a square root, not a cube root.',
+            'Correct! It’s a square root definition.'
+        ]
+    },
+    // True (Ch8 - Q24)
+    {
+        type: 'tf',
+        question: 'The angular momentum of a rigid body in planar motion can be expressed as \\( L = I \omega \\) for an axis perpendicular to the plane. (Ch8 - Q24)\n(بالعربية: يمكن التعبير عن العزم الزاوي لجسم صلب في حركة مستوية بـ \\( L = I \omega \\) لمحور عمودي على المستوي؟)',
+        correct: true,
+        explanations: [
+            'Correct! This applies for planar rotation about a fixed axis.',
+            'Incorrect. This is indeed correct.'
+        ]
+    },
+    // False (Ch8 - Q25)
+    {
+        type: 'tf',
+        question: 'A physical pendulum has no dependence on its moment of inertia for the period of oscillation. (Ch8 - Q25)\n(بالعربية: لا يعتمد البندول الفيزيائي على عزمه القصوري عند حساب زمن الدورة؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The period depends on I, as seen in the formula \\( T = 2\pi\sqrt{\frac{I}{MgL}} \\).',
+            'Correct! It definitely depends on I.'
+        ]
+    },
+    // True (Ch8 - Q26)
+    {
+        type: 'tf',
+        question: 'For laminar motion, the kinetic energy of a rigid body can be separated into the kinetic energy of the center of mass plus the kinetic energy about the center of mass. (Ch8 - Q26)\n(بالعربية: بالنسبة للحركة المستوية، يمكن فصل الطاقة الحركية لجسم صلب إلى طاقة مركز الكتلة الحركية وطاقة حول مركز الكتلة؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is a standard decomposition of kinetic energy.',
+            'Incorrect. This known separation is valid.'
+        ]
+    },
+    // True (Ch8 - Q27)
+    {
+        type: 'tf',
+        question: 'In rolling without slipping, the point of contact with the surface is instantaneously at rest. (Ch8 - Q27)\n(بالعربية: في التدحرج دون انزلاق، تكون نقطة التماس مع السطح ساكنة آنياً؟)',
+        correct: true,
+        explanations: [
+            'Correct! That’s the definition of rolling without slipping.',
+            'Incorrect. This is a key characteristic of rolling without slipping.'
+        ]
+    },
+    // False (Ch8 - Q28)
+    {
+        type: 'tf',
+        question: 'The torque acting on a body is independent of the chosen axis of rotation. (Ch8 - Q28)\n(بالعربية: العزم المؤثر على جسم لا يعتمد على المحور المختار للدوران؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Torque does depend on the axis chosen.',
+            'Correct! It is axis-dependent.'
+        ]
+    },
+    // True (Ch8 - Q29)
+    {
+        type: 'tf',
+        question: 'A laminar motion means the rigid body moves in a plane without any out-of-plane motion. (Ch8 - Q29)\n(بالعربية: الحركة المستوية تعني أن الجسم الصلب يتحرك في مستوى دون حركة خارج هذا المستوى؟)',
+        correct: true,
+        explanations: [
+            'Correct! Laminar motion is confined to a single plane.',
+            'Incorrect. That is the definition of laminar (planar) motion.'
+        ]
+    },
+    // False (Ch8 - Q30)
+    {
+        type: 'tf',
+        question: 'For a physical pendulum, reducing the pivot-to-COM distance decreases the period of oscillation without limit. (Ch8 - Q30)\n(بالعربية: في البندول الفيزيائي، تقليل المسافة بين المحور ومركز الكتلة يقلل زمن الدورة بلا حدود؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. There is an optimal pivot point (center of percussion).',
+            'Correct! It doesn’t decrease without limit; there’s a specific relationship.'
+        ]
+    },
+
+    // -----------------------------
+    // Chapter 9 (30 questions)
+    // -----------------------------
+    // True (Ch9 - Q1)
+    {
+        type: 'tf',
+        question: 'The moment of inertia tensor \\( \mathbf{I} \\) is a 3x3 matrix that relates angular velocity to angular momentum. (Ch9 - Q1)\n(بالعربية: مصفوفة عزم القصور الذاتي \\( \mathbf{I} \\) هي مصفوفة 3x3 تربط السرعة الزاوية بالعزم الزاوي؟)',
+        correct: true,
+        explanations: [
+            'Correct! \\( \mathbf{L} = \mathbf{I}\boldsymbol{\omega} \\).',
+            'Incorrect. This is the fundamental definition of the inertia tensor.'
+        ]
+    },
+    // False (Ch9 - Q2)
+    {
+        type: 'tf',
+        question: 'The products of inertia always vanish for any chosen set of axes. (Ch9 - Q2)\n(بالعربية: ترافق عزم القصور الذاتي يختفي دائماً لأي مجموعة محاور مختارة؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Products of inertia vanish only along principal axes.',
+            'Correct! They are zero only in principal axes, not all axes.'
+        ]
+    },
+    // True (Ch9 - Q3)
+    {
+        type: 'tf',
+        question: 'Principal axes are special coordinate axes where the inertia tensor is diagonal. (Ch9 - Q3)\n(بالعربية: المحاور الرئيسية هي محاور تنسيق خاصة حيث تكون مصفوفة العطالة قطرية؟)',
+        correct: true,
+        explanations: [
+            'Correct! That’s the definition of principal axes.',
+            'Incorrect. Principal axes yield a diagonal inertia tensor.'
+        ]
+    },
+    // True (Ch9 - Q4)
+    {
+        type: 'tf',
+        question: 'Euler’s equations for a rigid body without external torque are \\( I_1 \dot{\omega}_1 = (I_2 - I_3) \omega_2 \omega_3 \\) and cyclic permutations. (Ch9 - Q4)\n(بالعربية: معادلات أويلر لجسم صلب بدون عزم خارجي هي \\( I_1 \dot{\omega}_1 = (I_2 - I_3)\omega_2 \omega_3 \\) والتباديل الدورية؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the standard form of Euler’s equations.',
+            'Incorrect. The given equations are correct for Euler’s equations.'
+        ]
+    },
+    // False (Ch9 - Q5)
+    {
+        type: 'tf',
+        question: 'For any rigid body, choosing Euler angles is unnecessary to describe its orientation in space. (Ch9 - Q5)\n(بالعربية: لأي جسم صلب، لا حاجة لاستخدام زوايا أويلر لوصف اتجاهه في الفضاء؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Euler angles are a common method to parameterize orientation.',
+            'Correct! Euler angles are often used to describe orientation.'
+        ]
+    },
+    // True (Ch9 - Q6)
+    {
+        type: 'tf',
+        question: 'The kinetic energy of a rotating rigid body in 3D can be written as \\( T = \frac{1}{2}\boldsymbol{\omega}^T \mathbf{I} \boldsymbol{\omega} \\). (Ch9 - Q6)\n(بالعربية: يمكن كتابة الطاقة الحركية لجسم صلب يدور في ثلاثية الأبعاد بـ \\( T = \frac{1}{2}\boldsymbol{\omega}^T \mathbf{I} \boldsymbol{\omega} \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the general 3D form of rotational kinetic energy.',
+            'Incorrect. This is indeed the correct general form.'
+        ]
+    },
+    // False (Ch9 - Q7)
+    {
+        type: 'tf',
+        question: 'Principal moments of inertia are the eigenvalues of the force matrix, not the inertia tensor. (Ch9 - Q7)\n(بالعربية: العزوم الأساسية للعطالة هي القيم الذاتية لمصفوفة القوة وليس لمصفوفة العطالة؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. They are the eigenvalues of the inertia tensor.',
+            'Correct! They are from the inertia tensor, not a “force matrix.”'
+        ]
+    },
+    // True (Ch9 - Q8)
+    {
+        type: 'tf',
+        question: 'With no external torque, the angular momentum \\( \mathbf{L} \\) of a rigid body is conserved. (Ch9 - Q8)\n(بالعربية: في غياب عزم خارجي، يحفظ العزم الزاوي \\( \mathbf{L} \\) للجسم الصلب؟)',
+        correct: true,
+        explanations: [
+            'Correct! Conservation of angular momentum applies here.',
+            'Incorrect. It is conserved with zero external torque.'
+        ]
+    },
+    // True (Ch9 - Q9)
+    {
+        type: 'tf',
+        question: 'A symmetric top has two equal principal moments of inertia. (Ch9 - Q9)\n(بالعربية: يمتلك القُـلَّب المتماثل عزمين أساسيين للعطالة متساويين؟)',
+        correct: true,
+        explanations: [
+            'Correct! That’s the definition of a symmetric top.',
+            'Incorrect. By definition, a symmetric top has at least two equal moments.'
+        ]
+    },
+    // False (Ch9 - Q10)
+    {
+        type: 'tf',
+        question: 'Euler angles cannot represent all possible orientations of a rigid body. (Ch9 - Q10)\n(بالعربية: لا يمكن لزوايا أويلر تمثيل جميع الاتجاهات الممكنة لجسم صلب؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Euler angles can represent any orientation, though with some singularities.',
+            'Correct! Euler angles cover all orientations, albeit with certain limitations.'
+        ]
+    },
+    // True (Ch9 - Q11)
+    {
+        type: 'tf',
+        question: 'In free rotation, the vector \\( \mathbf{L} \\) remains fixed in space, and the body’s angular velocity \\( \boldsymbol{\omega} \\) precesses around it. (Ch9 - Q11)\n(بالعربية: في الدوران الحر، يظل متجه العزم الزاوي ثابتاً في الفضاء، وتدور السرعة الزاوية حوله؟)',
+        correct: true,
+        explanations: [
+            'Correct! This describes the typical behavior of a free rigid body.',
+            'Incorrect. This is the known behavior under free rotation.'
+        ]
+    },
+    // False (Ch9 - Q12)
+    {
+        type: 'tf',
+        question: 'The inertia tensor is independent of the choice of coordinate axes. (Ch9 - Q12)\n(بالعربية: مصفوفة العطالة لا تعتمد على اختيار محاور الإحداثيات؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The inertia tensor changes when you rotate the axes.',
+            'Correct! It does depend on the coordinate system.'
+        ]
+    },
+    // True (Ch9 - Q13)
+    {
+        type: 'tf',
+        question: 'For a rigid body with an axis of symmetry, Euler’s equations simplify because two moments of inertia are equal. (Ch9 - Q13)\n(بالعربية: لجسم صلب ذو محور تماثل، تتبسط معادلات أويلر لأن عزمين من العطالة متساويان؟)',
+        correct: true,
+        explanations: [
+            'Correct! This simplification occurs for symmetric tops.',
+            'Incorrect. Symmetry does simplify the equations.'
+        ]
+    },
+    // False (Ch9 - Q14)
+    {
+        type: 'tf',
+        question: 'The gyroscopic effect is unrelated to the conservation of angular momentum. (Ch9 - Q14)\n(بالعربية: التأثير الجيروسكوبي لا علاقة له بحفظ العزم الزاوي؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The gyroscopic effect is directly related to angular momentum conservation.',
+            'Correct! It is definitely related to angular momentum.'
+        ]
+    },
+    // True (Ch9 - Q15)
+    {
+        type: 'tf',
+        question: 'In analyzing rigid body rotations in 3D, choosing principal axes simplifies the inertia tensor to a diagonal form. (Ch9 - Q15)\n(بالعربية: عند تحليل دوران جسم صلب ثلاثي الأبعاد، اختيار المحاور الرئيسية يبسط مصفوفة العطالة لتصبح قطرية؟)',
+        correct: true,
+        explanations: [
+            'Correct! That’s exactly why we choose principal axes.',
+            'Incorrect. This is the main advantage of principal axes.'
+        ]
+    },
+    // True (Ch9 - Q16)
+    {
+        type: 'tf',
+        question: 'For a free rigid body, the angular velocity vector generally does not remain aligned with the angular momentum vector. (Ch9 - Q16)\n(بالعربية: بالنسبة لجسم صلب حر، لا تبقى السرعة الزاوية عادةً بمحاذاة العزم الزاوي؟)',
+        correct: true,
+        explanations: [
+            'Correct! They generally do not coincide except in special cases.',
+            'Incorrect. In general, they do not remain aligned.'
+        ]
+    },
+    // False (Ch9 - Q17)
+    {
+        type: 'tf',
+        question: 'The eigenvalues of the inertia tensor are negative. (Ch9 - Q17)\n(بالعربية: القيم الذاتية لمصفوفة العطالة سالبة؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Moments of inertia are positive quantities.',
+            'Correct! They must be positive.'
+        ]
+    },
+    // True (Ch9 - Q18)
+    {
+        type: 'tf',
+        question: 'A rotating rigid body without external torque conserves its rotational kinetic energy as well as its angular momentum. (Ch9 - Q18)\n(بالعربية: يحفظ جسم صلب دوار بدون عزم خارجي طاقته الحركية الدورانية وعزمه الزاوي؟)',
+        correct: true,
+        explanations: [
+            'Correct! No external torque means both are conserved.',
+            'Incorrect. They are conserved in the absence of external torques.'
+        ]
+    },
+    // False (Ch9 - Q19)
+    {
+        type: 'tf',
+        question: 'Euler angles are defined uniquely without any possibility of singularities. (Ch9 - Q19)\n(بالعربية: زوايا أويلر معرفة بشكل فريد دون أي احتمالية للنقاط الشاذة؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Euler angles suffer from gimbal lock and singularities.',
+            'Correct! Euler angles do have singularities.'
+        ]
+    },
+    // True (Ch9 - Q20)
+    {
+        type: 'tf',
+        question: 'If a rigid body is symmetric about one axis, it can exhibit steady precession under a suitable torque. (Ch9 - Q20)\n(بالعربية: إذا كان الجسم الصلب متماثلاً حول محور واحد، يمكنه أن يظهر ترنحاً منتظماً تحت عزم مناسب؟)',
+        correct: true,
+        explanations: [
+            'Correct! This describes the motion of tops and gyroscopes.',
+            'Incorrect. Symmetry and torque lead to steady precession.'
+        ]
+    },
+    // True (Ch9 - Q21)
+    {
+        type: 'tf',
+        question: 'Euler’s equations reduce to a simpler form when the body has an axis of symmetry. (Ch9 - Q21)\n(بالعربية: تتبسط معادلات أويلر عندما يمتلك الجسم محور تماثل؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is a known simplification.',
+            'Incorrect. They indeed simplify with symmetry.'
+        ]
+    },
+    // False (Ch9 - Q22)
+    {
+        type: 'tf',
+        question: 'Principal axes depend on time if the rigid body is isolated in free rotation. (Ch9 - Q22)\n(بالعربية: تعتمد المحاور الرئيسية على الزمن إذا كان الجسم الصلب معزولاً في دوران حر؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Principal axes are defined by the geometry and mass distribution, not time.',
+            'Correct! They are fixed in the body frame.'
+        ]
+    },
+    // True (Ch9 - Q23)
+    {
+        type: 'tf',
+        question: 'In Euler’s equations, the differences between the moments of inertia (like \\( I_2 - I_3 \\)) determine the coupling between angular velocity components. (Ch9 - Q23)\n(بالعربية: في معادلات أويلر، تحدد فروق عزوم العطالة (مثل \\( I_2 - I_3 \\)) الترابط بين مركبات السرعة الزاوية؟)',
+        correct: true,
+        explanations: [
+            'Correct! The coupling arises due to differences in principal moments.',
+            'Incorrect. The differences indeed cause the coupling.'
+        ]
+    },
+    // False (Ch9 - Q24)
+    {
+        type: 'tf',
+        question: 'A rigid body with three distinct principal moments of inertia will not exhibit complex free rotational motion. (Ch9 - Q24)\n(بالعربية: لن يظهر جسم صلب لديه ثلاثة عزوم عطالة أساسية مختلفة أي حركة دورانية حرة معقدة؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Three distinct principal moments can lead to complicated tumbling motion.',
+            'Correct! Distinct moments can produce complex behavior.'
+        ]
+    },
+    // True (Ch9 - Q25)
+    {
+        type: 'tf',
+        question: 'The kinetic energy of a free rigid body remains constant if no external torque acts. (Ch9 - Q25)\n(بالعربية: تبقى الطاقة الحركية لجسم صلب حر ثابتة إذا لم يؤثر عزم خارجي؟)',
+        correct: true,
+        explanations: [
+            'Correct! No torque means no energy change in rotation.',
+            'Incorrect. It does remain constant without external torques.'
+        ]
+    },
+    // True (Ch9 - Q26)
+    {
+        type: 'tf',
+        question: 'The orientation of a rigid body can be parameterized by Euler angles, although other parameterizations like quaternions also exist. (Ch9 - Q26)\n(بالعربية: يمكن تمثيل اتجاه جسم صلب بزوايا أويلر، رغم وجود تمثيلات أخرى مثل الكواتيرنيون؟)',
+        correct: true,
+        explanations: [
+            'Correct! Quaternions are another common choice.',
+            'Incorrect. Euler angles are not the only way.'
+        ]
+    },
+    // False (Ch9 - Q27)
+    {
+        type: 'tf',
+        question: 'If a body’s inertia tensor is the identity matrix, its moments of inertia are zero. (Ch9 - Q27)\n(بالعربية: إذا كانت مصفوفة العطالة مصفوفة الوحدة، فإن عزوم العطالة للجسم تساوي صفراً؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. An identity matrix would mean all moments are equal to 1, not zero.',
+            'Correct! Identity matrix means each principal moment is 1, not zero.'
+        ]
+    },
+    // True (Ch9 - Q28)
+    {
+        type: 'tf',
+        question: 'Nutation refers to the oscillatory motion of the axis of a spinning top. (Ch9 - Q28)\n(بالعربية: الاهتزاز (التأرجح) يشير إلى الحركة التذبذبية لمحور القُـلَّب الدوار؟)',
+        correct: true,
+        explanations: [
+            'Correct! Nutation is indeed that oscillatory motion.',
+            'Incorrect. Nutation is the correct term for that motion.'
+        ]
+    },
+    // False (Ch9 - Q29)
+    {
+        type: 'tf',
+        question: 'A gyrocompass relies on electric fields rather than angular momentum principles. (Ch9 - Q29)\n(بالعربية: يعتمد البوصلة الجيروسكوبية على المجالات الكهربائية بدلاً من مبدأ العزم الزاوي؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. A gyrocompass uses the gyroscopic effect, which involves angular momentum.',
+            'Correct! It’s based on angular momentum, not electric fields.'
+        ]
+    },
+    // True (Ch9 - Q30)
+    {
+        type: 'tf',
+        question: 'A rider maintains balance on a moving bicycle partly due to the gyroscopic effect of the rotating wheels. (Ch9 - Q30)\n(بالعربية: يحافظ الراكب على توازنه على الدراجة المتحركة جزئياً بفضل التأثير الجيروسكوبي لعجلاتها الدوارة؟)',
+        correct: true,
+        explanations: [
+            'Correct! The gyroscopic effect helps with stability.',
+            'Incorrect. The gyroscopic effect does aid in stability.'
+        ]
+    },
+
+    // -----------------------------
+    // Chapter 10 (30 questions)
+    // -----------------------------
+    // True (Ch10 - Q1)
+    {
+        type: 'tf',
+        question: 'The Lagrangian is defined as \\( L = T - V \\), where \\( T \\) is kinetic energy and \\( V \\) is potential energy. (Ch10 - Q1)\n(بالعربية: يُعرف اللاغرانجي بـ \\( L = T - V \\)، حيث T الطاقة الحركية و V الطاقة الكامنة؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the standard definition of the Lagrangian.',
+            'Incorrect. That is the correct definition of L.'
+        ]
+    },
+    // True (Ch10 - Q2)
+    {
+        type: 'tf',
+        question: 'Generalized coordinates are chosen to simplify the description of a system’s configuration. (Ch10 - Q2)\n(بالعربية: يتم اختيار الإحداثيات المعممة لتبسيط وصف حالة النظام؟)',
+        correct: true,
+        explanations: [
+            'Correct! Generalized coordinates reduce complexity.',
+            'Incorrect. They are chosen exactly to simplify the problem.'
+        ]
+    },
+    // False (Ch10 - Q3)
+    {
+        type: 'tf',
+        question: 'The Euler-Lagrange equation is \\( \frac{d}{dt}\left(\frac{\partial L}{\partial q_i}\right) - \frac{\partial L}{\partial \dot{q}_i} = 0 \\). (Ch10 - Q3)\n(بالعربية: معادلة أويلر-لاغرانج هي \\( \frac{d}{dt}\left(\frac{\partial L}{\partial q_i}\right) - \frac{\partial L}{\partial \dot{q}_i} = 0 \\)؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The correct form is \\( \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right) - \frac{\partial L}{\partial q_i} = 0 \\).',
+            'Correct! The partial derivatives are swapped in the given formula.'
+        ]
+    },
+    // True (Ch10 - Q4)
+    {
+        type: 'tf',
+        question: 'If a coordinate does not appear in the Lagrangian, its corresponding generalized momentum is conserved. (Ch10 - Q4)\n(بالعربية: إذا لم يظهر إحداثي معين في اللاغرانجي، فإن زخمه المعمم المقابل محفوظ؟)',
+        correct: true,
+        explanations: [
+            'Correct! Such coordinates are called ignorable or cyclic coordinates.',
+            'Incorrect. This is the definition of an ignorable coordinate.'
+        ]
+    },
+    // True (Ch10 - Q5)
+    {
+        type: 'tf',
+        question: 'Hamilton’s equations are another way to represent the dynamics, using \\( q_i \\) and \\( p_i \\) instead of \\( q_i \\) and \\( \dot{q}_i \\). (Ch10 - Q5)\n(بالعربية: معادلات هاميلتون هي طريقة أخرى لتمثيل الديناميكا باستخدام \( q_i \) و \( p_i \) بدلاً من \( q_i \) و \( \dot{q}_i \)؟)',
+        correct: true,
+        explanations: [
+            'Correct! Hamiltonian mechanics uses generalized momenta.',
+            'Incorrect. This is exactly what Hamilton’s formulation does.'
+        ]
+    },
+    // False (Ch10 - Q6)
+    {
+        type: 'tf',
+        question: 'The Hamiltonian is defined as \\( H = L - \sum p_i \dot{q}_i \\). (Ch10 - Q6)\n(بالعربية: يعرف الهاملتوني بـ \\( H = L - \sum p_i \dot{q}_i \\)؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The correct definition is \\( H = \sum p_i \dot{q}_i - L \\).',
+            'Correct! The sign is reversed in the correct definition.'
+        ]
+    },
+    // True (Ch10 - Q7)
+    {
+        type: 'tf',
+        question: 'The principle of least action states that the actual path taken by a system makes the action \\( S = \int L \, dt \\) stationary. (Ch10 - Q7)\n(بالعربية: ينص مبدأ أقل فعل على أن المسار الفعلي للنظام يجعل الفعل \( S = \int L dt \) ثابتاً؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is Hamilton’s principle of stationary action.',
+            'Incorrect. That’s precisely what the principle says.'
+        ]
+    },
+    // False (Ch10 - Q8)
+    {
+        type: 'tf',
+        question: 'Generalized momenta are defined as \\( p_i = \frac{\partial L}{\partial q_i} \\). (Ch10 - Q8)\n(بالعربية: تعرف الكمية المعممة بالزخم بـ \( p_i = \frac{\partial L}{\partial q_i} \)؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. It should be \( p_i = \frac{\partial L}{\partial \dot{q}_i} \).',
+            'Correct! The correct definition involves the time derivative coordinate.'
+        ]
+    },
+    // True (Ch10 - Q9)
+    {
+        type: 'tf',
+        question: 'The Hamiltonian often represents the total energy of the system (when time is not explicitly present). (Ch10 - Q9)\n(بالعربية: يمثل الهاملتوني غالباً الطاقة الكلية للنظام إذا لم يظهر الزمن صراحة؟)',
+        correct: true,
+        explanations: [
+            'Correct! Hamiltonian equals total energy for conservative systems.',
+            'Incorrect. Typically, H is the total energy in time-independent cases.'
+        ]
+    },
+    // True (Ch10 - Q10)
+    {
+        type: 'tf',
+        question: 'If the Lagrangian does not depend on time explicitly, the Hamiltonian (total energy) is conserved. (Ch10 - Q10)\n(بالعربية: إذا لم يعتمد اللاغرانجي على الزمن صراحةً، فإن الهاملتوني (الطاقة الكلية) محفوظ؟)',
+        correct: true,
+        explanations: [
+            'Correct! Time-independence of L leads to energy conservation.',
+            'Incorrect. That is a known result in conservative systems.'
+        ]
+    },
+    // False (Ch10 - Q11)
+    {
+        type: 'tf',
+        question: 'Lagrange multipliers are used to eliminate constraints rather than incorporate them into the equations of motion. (Ch10 - Q11)\n(بالعربية: تستخدم معاملات لاغرانج لإزالة القيود بدلاً من إدخالها في معادلات الحركة؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Lagrange multipliers are used to incorporate constraints, not remove them.',
+            'Correct! They help handle constraints in the Lagrangian formalism.'
+        ]
+    },
+    // True (Ch10 - Q12)
+    {
+        type: 'tf',
+        question: 'D’Alembert’s principle states that the sum of the virtual work of the applied forces and inertial forces is zero. (Ch10 - Q12)\n(بالعربية: ينص مبدأ دالامبير على أن مجموع الشغل الافتراضي للقوى المطبقة وقوى العطالة يساوي صفراً؟)',
+        correct: true,
+        explanations: [
+            'Correct! That’s the essence of D’Alembert’s principle.',
+            'Incorrect. That’s exactly what D’Alembert’s principle says.'
+        ]
+    },
+    // True (Ch10 - Q13)
+    {
+        type: 'tf',
+        question: 'In Lagrangian mechanics, non-conservative forces can be incorporated as generalized forces. (Ch10 - Q13)\n(بالعربية: في ميكانيكا لاغرانج، يمكن إدخال القوى غير المحافظة كقوى معممة؟)',
+        correct: true,
+        explanations: [
+            'Correct! Non-conservative forces appear as generalized forces in Lagrange’s equations.',
+            'Incorrect. This is how non-conservative forces are handled.'
+        ]
+    },
+    // False (Ch10 - Q14)
+    {
+        type: 'tf',
+        question: 'Hamilton’s equations are \\( \dot{p}_i = \frac{\partial H}{\partial p_i} \\) and \\( \dot{q}_i = -\frac{\partial H}{\partial q_i} \\). (Ch10 - Q14)\n(بالعربية: معادلات هاميلتون هي \( \dot{p}_i = \frac{\partial H}{\partial p_i} \) و \( \dot{q}_i = -\frac{\partial H}{\partial q_i} \)؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Hamilton’s equations are \\( \dot{q}_i = \frac{\partial H}{\partial p_i} \\) and \\( \dot{p}_i = -\frac{\partial H}{\partial q_i} \\).',
+            'Correct! The signs are swapped for q and p derivatives.'
+        ]
+    },
+    // True (Ch10 - Q15)
+    {
+        type: 'tf',
+        question: 'In Lagrangian mechanics, constraints can be included using Lagrange multipliers associated with constraint equations. (Ch10 - Q15)\n(بالعربية: في ميكانيكا لاغرانج، يمكن إدراج القيود باستخدام معاملات لاغرانج المرتبطة بمعادلات القيد؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is how constraints are typically handled.',
+            'Incorrect. This is the standard method for constraints.'
+        ]
+    },
+    // False (Ch10 - Q16)
+    {
+        type: 'tf',
+        question: 'If a coordinate appears explicitly in the Lagrangian, the corresponding momentum is conserved. (Ch10 - Q16)\n(بالعربية: إذا ظهر إحداثي بوضوح في اللاغرانجي، فإن زخمه المعمم يكون محفوظاً؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. If it appears explicitly, it’s not an ignorable coordinate, so no guaranteed conservation.',
+            'Correct! Coordinates that appear explicitly are not ignorable.'
+        ]
+    },
+    // True (Ch10 - Q17)
+    {
+        type: 'tf',
+        question: 'The Lagrangian formulation can be applied even in non-inertial reference frames if generalized forces account for fictitious forces. (Ch10 - Q17)\n(بالعربية: يمكن تطبيق صيغة لاغرانج حتى في الأُطر غير القصورية إذا أخذت القوى المعممة بالحسبان القوى الوهمية؟)',
+        correct: true,
+        explanations: [
+            'Correct! Non-inertial frames are handled by adding appropriate fictitious forces.',
+            'Incorrect. This is how we deal with non-inertial frames.'
+        ]
+    },
+    // True (Ch10 - Q18)
+    {
+        type: 'tf',
+        question: 'In cases of holonomic constraints, the number of generalized coordinates is reduced accordingly. (Ch10 - Q18)\n(بالعربية: في حالة القيود الهولونية، يتم تقليل عدد الإحداثيات المعممة وفقاً لذلك؟)',
+        correct: true,
+        explanations: [
+            'Correct! Holonomic constraints relate coordinates, reducing degrees of freedom.',
+            'Incorrect. That’s the definition of holonomic constraints.'
+        ]
+    },
+    // False (Ch10 - Q19)
+    {
+        type: 'tf',
+        question: 'The Lagrangian is invariant under coordinate transformations, but the equations of motion change form. (Ch10 - Q19)\n(بالعربية: اللاغرانجي ثابت تحت تحويلات الإحداثيات، لكن معادلات الحركة تتغير في شكلها؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Lagrange’s equations maintain their form under any smooth coordinate transformation.',
+            'Correct! The form of Lagrange’s equations is invariant.'
+        ]
+    },
+    // True (Ch10 - Q20)
+    {
+        type: 'tf',
+        question: 'In Lagrangian mechanics, one must always use generalized coordinates that minimize the number of constraints. (Ch10 - Q20)\n(بالعربية: في ميكانيكا لاغرانج، يجب دائماً استخدام الإحداثيات المعممة التي تقلل عدد القيود؟)',
+        correct: true,
+        explanations: [
+            'Correct! Choosing suitable coordinates simplifies the problem by reducing constraints.',
+            'Incorrect. It’s generally best to choose coordinates that minimize complexity.'
+        ]
+    },
+    // True (Ch10 - Q21)
+    {
+        type: 'tf',
+        question: 'If the potential energy depends only on generalized coordinates (not velocities), the Lagrangian formulation is simpler. (Ch10 - Q21)\n(بالعربية: إذا اعتمدت الطاقة الكامنة على الإحداثيات المعممة فقط (ليس على السرعات)، فإن صيغة لاغرانج تكون أبسط؟)',
+        correct: true,
+        explanations: [
+            'Correct! Velocity-dependent potentials complicate the Lagrangian.',
+            'Incorrect. Potential depending only on coordinates is simpler.'
+        ]
+    },
+    // False (Ch10 - Q22)
+    {
+        type: 'tf',
+        question: 'In Lagrangian mechanics, the generalized momenta are always identical to the mechanical linear momenta. (Ch10 - Q22)\n(بالعربية: في ميكانيكا لاغرانج، تكون الزخم المعمم متماثلاً دائماً مع الزخم الخطي الميكانيكي؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Generalized momenta can differ, especially in rotational or constrained systems.',
+            'Correct! They can differ from simple linear momenta.'
+        ]
+    },
+    // True (Ch10 - Q23)
+    {
+        type: 'tf',
+        question: 'If a generalized coordinate is cyclic (ignorable), its conjugate momentum is constant. (Ch10 - Q23)\n(بالعربية: إذا كان إحداثي معمماً دورياً (يمكن تجاهله)، فإن زخمه المرافق يكون ثابتاً؟)',
+        correct: true,
+        explanations: [
+            'Correct! That’s the definition of a cyclic coordinate.',
+            'Incorrect. This is exactly how ignorable coordinates work.'
+        ]
+    },
+    // False (Ch10 - Q24)
+    {
+        type: 'tf',
+        question: 'D’Alembert’s principle states that the sum of real and inertial forces does positive virtual work. (Ch10 - Q24)\n(بالعربية: ينص مبدأ دالامبير على أن مجموع القوى الحقيقية والعطالية يبذل شغلاً افتراضياً موجباً؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. D’Alembert’s principle states the sum of these works is zero.',
+            'Correct! The principle requires zero net virtual work.'
+        ]
+    },
+    // True (Ch10 - Q25)
+    {
+        type: 'tf',
+        question: 'The Hamiltonian formulation uses \\( (q_i, p_i) \\) as independent variables instead of \\( (q_i, \dot{q}_i) \\). (Ch10 - Q25)\n(بالعربية: تستخدم صيغة هاميلتون \( q_i, p_i \) كمتغيرات مستقلة بدلاً من \( q_i, \dot{q}_i \)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the hallmark of Hamiltonian mechanics.',
+            'Incorrect. This is exactly how Hamilton’s mechanics differs.'
+        ]
+    },
+    // True (Ch10 - Q26)
+    {
+        type: 'tf',
+        question: 'In Hamiltonian mechanics, if \\( H \\) does not depend on time, \\( H \\) is conserved. (Ch10 - Q26)\n(بالعربية: في ميكانيكا هاميلتون، إذا لم يعتمد H على الزمن، فإن H محفوظ؟)',
+        correct: true,
+        explanations: [
+            'Correct! This corresponds to energy conservation in time-invariant systems.',
+            'Incorrect. That is the known result.'
+        ]
+    },
+    // False (Ch10 - Q27)
+    {
+        type: 'tf',
+        question: 'Lagrange multipliers remove the constraint equations from the dynamics. (Ch10 - Q27)\n(بالعربية: معاملات لاغرانج تزيل معادلات القيد من الديناميكا؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. They incorporate constraints into the dynamics, not remove them.',
+            'Correct! They help enforce constraints, not remove them.'
+        ]
+    },
+    // True (Ch10 - Q28)
+    {
+        type: 'tf',
+        question: 'The Lagrangian approach often simplifies the derivation of equations of motion for complex mechanical systems. (Ch10 - Q28)\n(بالعربية: تبسط طريقة لاغرانج غالباً اشتقاق معادلات الحركة للأنظمة الميكانيكية المعقدة؟)',
+        correct: true,
+        explanations: [
+            'Correct! Lagrangian mechanics is well suited for complex systems.',
+            'Incorrect. This is a key advantage of Lagrangian mechanics.'
+        ]
+    },
+    // True (Ch10 - Q29)
+    {
+        type: 'tf',
+        question: 'In a system with an ignorable coordinate, the corresponding generalized momentum is a constant of motion. (Ch10 - Q29)\n(بالعربية: في نظام يحتوي على إحداثي يمكن تجاهله، فإن الزخم المعمم المقابل ثابت الحركة؟)',
+        correct: true,
+        explanations: [
+            'Correct! That’s the definition of a cyclic coordinate.',
+            'Incorrect. It’s known that it leads to a conserved momentum.'
+        ]
+    },
+    // False (Ch10 - Q30)
+    {
+        type: 'tf',
+        question: 'A relativistic Lagrangian for a free particle is \( L = -m_0 c^2 \sqrt{1 + \frac{v^2}{c^2}} \). (Ch10 - Q30)\n(بالعربية: اللاغرانجي النسبي لجسيم حر هو \( L = -m_0 c^2 \sqrt{1 + \frac{v^2}{c^2}} \)؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The relativistic factor is \( \sqrt{1 - \frac{v^2}{c^2}} \), not plus.',
+            'Correct! It should be a minus sign under the square root.'
+        ]
+    },
+
+    // -----------------------------
+    // Chapter 11 (30 questions)
+    // -----------------------------
+    // True (Ch11 - Q1)
+    {
+        type: 'tf',
+        question: 'An equilibrium point is where the first derivative of the potential energy with respect to position is zero. (Ch11 - Q1)\n(بالعربية: نقطة الاتزان هي حيث يكون مشتق الطاقة الكامنة بالنسبة للإزاحة صفراً؟)',
+        correct: true,
+        explanations: [
+            'Correct! That defines an equilibrium position.',
+            'Incorrect. This is the standard condition for equilibrium.'
+        ]
+    },
+    // True (Ch11 - Q2)
+    {
+        type: 'tf',
+        question: 'For small oscillations near a stable equilibrium, the potential can be approximated by a quadratic function. (Ch11 - Q2)\n(بالعربية: للتذبذبات الصغيرة قرب اتزان مستقر، يمكن تقريب الجهد بدالة تربيعية؟)',
+        correct: true,
+        explanations: [
+            'Correct! This leads to simple harmonic motion.',
+            'Incorrect. This quadratic approximation is standard.'
+        ]
+    },
+    // False (Ch11 - Q3)
+    {
+        type: 'tf',
+        question: 'A stable equilibrium requires that \\( \frac{d^2V}{dx^2} < 0 \\) at the equilibrium point. (Ch11 - Q3)\n(بالعربية: يتطلب الاتزان المستقر أن يكون \\( \frac{d^2V}{dx^2} < 0 \\) عند نقطة الاتزان؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Stable equilibrium requires \\( \frac{d^2V}{dx^2} > 0 \\).',
+            'Correct! It should be positive for stability.'
+        ]
+    },
+    // True (Ch11 - Q4)
+    {
+        type: 'tf',
+        question: 'In simple harmonic motion, the frequency of oscillation is \\( \omega = \sqrt{\frac{k}{m}} \\). (Ch11 - Q4)\n(بالعربية: في الحركة التوافقية البسيطة، تردد التذبذب هو \\( \omega = \sqrt{\frac{k}{m}} \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! That’s the standard formula for SHM.',
+            'Incorrect. This well-known formula is correct.'
+        ]
+    },
+    // True (Ch11 - Q5)
+    {
+        type: 'tf',
+        question: 'Normal modes are special solutions of coupled oscillators in which all parts oscillate at the same frequency. (Ch11 - Q5)\n(بالعربية: الأنماط الطبيعية هي حلول خاصة لمتذبذبات مقترنة حيث يتذبذب جميع الأجزاء بنفس التردد؟)',
+        correct: true,
+        explanations: [
+            'Correct! That defines normal modes.',
+            'Incorrect. This is the definition of normal modes.'
+        ]
+    },
+    // True (Ch11 - Q6)
+    {
+        type: 'tf',
+        question: 'For a string fixed at both ends, the allowed normal mode frequencies form a discrete set. (Ch11 - Q6)\n(بالعربية: بالنسبة لوتر مثبت من الطرفين، فإن ترددات الأنماط الطبيعية تكون مجموعة متقطعة؟)',
+        correct: true,
+        explanations: [
+            'Correct! Only certain wavelengths fit, giving discrete frequencies.',
+            'Incorrect. It is well-known that they are discrete.'
+        ]
+    },
+    // False (Ch11 - Q7)
+    {
+        type: 'tf',
+        question: 'At equilibrium, the potential energy is always at a maximum. (Ch11 - Q7)\n(بالعربية: عند الاتزان، تكون الطاقة الكامنة دائماً عند قيمة عظمى؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Equilibrium could be minimum (stable), maximum (unstable), or saddle point.',
+            'Correct! Not all equilibria are maxima.'
+        ]
+    },
+    // True (Ch11 - Q8)
+    {
+        type: 'tf',
+        question: 'Standing waves occur when two waves of the same frequency travel in opposite directions. (Ch11 - Q8)\n(بالعربية: تنشأ الموجات الواقفة عندما تنتشر موجتان لهما نفس التردد في اتجاهين متعاكسين؟)',
+        correct: true,
+        explanations: [
+            'Correct! This interference creates nodes and antinodes.',
+            'Incorrect. This is the definition of standing waves.'
+        ]
+    },
+    // True (Ch11 - Q9)
+    {
+        type: 'tf',
+        question: 'The wave equation in one dimension is \\( \frac{\partial^2 q}{\partial t^2} = v^2 \frac{\partial^2 q}{\partial x^2} \\). (Ch11 - Q9)\n(بالعربية: معادلة الموجة في بعد واحد هي \\( \frac{\partial^2 q}{\partial t^2} = v^2 \frac{\partial^2 q}{\partial x^2} \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the standard wave equation.',
+            'Incorrect. That’s the correct form of the wave equation.'
+        ]
+    },
+    // False (Ch11 - Q10)
+    {
+        type: 'tf',
+        question: 'For a stable equilibrium, a small displacement leads to a force pushing it further away from equilibrium. (Ch11 - Q10)\n(بالعربية: في الاتزان المستقر، يؤدي الإزاحة الصغيرة إلى قوة تدفعه بعيداً عن نقطة الاتزان؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Stable equilibrium means a restoring force pulls it back.',
+            'Correct! It should restore towards equilibrium, not push away.'
+        ]
+    },
+    // True (Ch11 - Q11)
+    {
+        type: 'tf',
+        question: 'In a continuous system like a string, normal modes correspond to standing wave patterns. (Ch11 - Q11)\n(بالعربية: في نظام مستمر مثل الوتر، تتوافق الأنماط الطبيعية مع أنماط الموجات الواقفة؟)',
+        correct: true,
+        explanations: [
+            'Correct! Standing wave patterns are the normal modes of a string.',
+            'Incorrect. Normal modes in strings are indeed standing waves.'
+        ]
+    },
+    // False (Ch11 - Q12)
+    {
+        type: 'tf',
+        question: 'If \\( \frac{d^2V}{dx^2} = 0 \\) at equilibrium, the equilibrium is definitely stable. (Ch11 - Q12)\n(بالعربية: إذا كان \\( \frac{d^2V}{dx^2} = 0 \\) عند الاتزان، فإن الاتزان مستقر بالتأكيد؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. If the second derivative is zero, we need higher-order terms to decide stability.',
+            'Correct! More analysis is needed, no guarantee of stability.'
+        ]
+    },
+    // True (Ch11 - Q13)
+    {
+        type: 'tf',
+        question: 'For small oscillations, the motion is approximately harmonic, and the solution is sinusoidal in time. (Ch11 - Q13)\n(بالعربية: للتذبذبات الصغيرة، تكون الحركة تقريباً توافقية، والحل جيبي في الزمن؟)',
+        correct: true,
+        explanations: [
+            'Correct! Small oscillations lead to SHM, which is sinusoidal.',
+            'Incorrect. Small oscillations are modeled by harmonic motion.'
+        ]
+    },
+    // True (Ch11 - Q14)
+    {
+        type: 'tf',
+        question: 'Coupled oscillators can be analyzed by looking for solutions where both oscillators move with the same frequency (normal modes). (Ch11 - Q14)\n(بالعربية: يمكن تحليل المتذبذبات المقترنة بالبحث عن حلول يتحرك فيها كلا المتذبذبين بنفس التردد (الأنماط الطبيعية)؟)',
+        correct: true,
+        explanations: [
+            'Correct! Finding normal modes is the key method.',
+            'Incorrect. This is precisely how we solve coupled oscillators.'
+        ]
+    },
+    // False (Ch11 - Q15)
+    {
+        type: 'tf',
+        question: 'In a one-dimensional wave on a string, the boundary conditions do not affect the allowed frequencies. (Ch11 - Q15)\n(بالعربية: في موجة أحادية البعد على وتر، لا تؤثر شروط الحد على الترددات المسموح بها؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Boundary conditions determine the allowed frequencies (mode shapes).',
+            'Correct! They definitely affect the allowed frequencies.'
+        ]
+    },
+    // True (Ch11 - Q16)
+    {
+        type: 'tf',
+        question: 'The fundamental mode of a string fixed at both ends is the mode with the longest wavelength that fits the boundary conditions. (Ch11 - Q16)\n(بالعربية: النمط الأساسي لوتر مثبت من الطرفين هو النمط ذو أطول طول موجي يناسب شروط الحد؟)',
+        correct: true,
+        explanations: [
+            'Correct! The fundamental mode has one antinode and longest wavelength.',
+            'Incorrect. That’s the definition of the fundamental mode.'
+        ]
+    },
+    // True (Ch11 - Q17)
+    {
+        type: 'tf',
+        question: 'In a stable equilibrium, the frequency of small oscillations is real and positive. (Ch11 - Q17)\n(بالعربية: في اتزان مستقر، يكون تردد التذبذبات الصغيرة حقيقياً وإيجابياً؟)',
+        correct: true,
+        explanations: [
+            'Correct! Stable equilibria lead to real positive frequencies.',
+            'Incorrect. Stability implies a positive ω².'
+        ]
+    },
+    // False (Ch11 - Q18)
+    {
+        type: 'tf',
+        question: 'For a continuous medium, like a string, the wave equation does not hold. (Ch11 - Q18)\n(بالعربية: بالنسبة لوسط مستمر مثل الوتر، لا تنطبق معادلة الموجة؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The wave equation is exactly for continuous media like strings.',
+            'Correct! The wave equation is fundamental for such media.'
+        ]
+    },
+    // True (Ch11 - Q19)
+    {
+        type: 'tf',
+        question: 'The second derivative of the potential at equilibrium determines whether the equilibrium is stable or unstable. (Ch11 - Q19)\n(بالعربية: يحدد المشتق الثاني للطاقة الكامنة عند الاتزان ما إذا كان الاتزان مستقراً أو غير مستقر؟)',
+        correct: true,
+        explanations: [
+            'Correct! If it’s positive, stable; if negative, unstable.',
+            'Incorrect. This is the known stability criterion.'
+        ]
+    },
+    // True (Ch11 - Q20)
+    {
+        type: 'tf',
+        question: 'Standing waves have nodes where the displacement is always zero. (Ch11 - Q20)\n(بالعربية: للموجات الواقفة عقد تكون فيها الإزاحة صفراً دائماً؟)',
+        correct: true,
+        explanations: [
+            'Correct! Nodes are a defining feature of standing waves.',
+            'Incorrect. Standing waves do have nodes of zero displacement.'
+        ]
+    },
+    // False (Ch11 - Q21)
+    {
+        type: 'tf',
+        question: 'Normal modes of a system depend on the amplitude of oscillation. (Ch11 - Q21)\n(بالعربية: تعتمد الأنماط الطبيعية للنظام على سعة التذبذب؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Normal modes are determined by the system’s parameters, not amplitude.',
+            'Correct! They are independent of amplitude.'
+        ]
+    },
+    // True (Ch11 - Q22)
+    {
+        type: 'tf',
+        question: 'For a given tension and linear mass density, a string’s wave speed is \\( v = \sqrt{\frac{T}{\mu}} \\). (Ch11 - Q22)\n(بالعربية: لشد وكثافة خطية معطيين، سرعة الموجة في وتر هي \\( v = \sqrt{\frac{T}{\mu}} \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the standard formula for wave speed on a string.',
+            'Incorrect. This known formula is correct.'
+        ]
+    },
+    // True (Ch11 - Q23)
+    {
+        type: 'tf',
+        question: 'The normal mode frequencies of a string fixed at both ends are given by \\( f_n = \frac{n v}{2L} \\). (Ch11 - Q23)\n(بالعربية: ترددات الأنماط الطبيعية لوتر مثبت من الطرفين هي \\( f_n = \frac{n v}{2L} \\)؟)',
+        correct: true,
+        explanations: [
+            'Correct! This is the well-known formula for allowed frequencies.',
+            'Incorrect. This is the standard formula.'
+        ]
+    },
+    // False (Ch11 - Q24)
+    {
+        type: 'tf',
+        question: 'Small oscillations near a stable equilibrium cannot be approximated by simple harmonic motion. (Ch11 - Q24)\n(بالعربية: لا يمكن تقريب التذبذبات الصغيرة قرب اتزان مستقر بحركة توافقية بسيطة؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. They are typically approximated by SHM.',
+            'Correct! We do approximate them by SHM.'
+        ]
+    },
+    // True (Ch11 - Q25)
+    {
+        type: 'tf',
+        question: 'The energy in a normal mode of a vibrating system is shared among all components but oscillates at a single frequency. (Ch11 - Q25)\n(بالعربية: تشترك جميع مكونات النظام المهتز في طاقة النمط الطبيعي، لكنها تتذبذب بنفس التردد الواحد؟)',
+        correct: true,
+        explanations: [
+            'Correct! All parts oscillate with the same frequency in a normal mode.',
+            'Incorrect. By definition, they share the same frequency.'
+        ]
+    },
+    // False (Ch11 - Q26)
+    {
+        type: 'tf',
+        question: 'An unstable equilibrium occurs if \\( \frac{d^2V}{dx^2} > 0 \\) at the equilibrium point. (Ch11 - Q26)\n(بالعربية: يحدث اتزان غير مستقر إذا كان \\( \frac{d^2V}{dx^2} > 0 \\) عند نقطة الاتزان؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. Positive second derivative indicates stability, not instability.',
+            'Correct! Positive means stable, negative means unstable.'
+        ]
+    },
+    // True (Ch11 - Q27)
+    {
+        type: 'tf',
+        question: 'The wave equation’s solutions can be traveling waves or standing waves, depending on boundary conditions. (Ch11 - Q27)\n(بالعربية: يمكن أن تكون حلول معادلة الموجة موجات متنقلة أو واقفة حسب شروط الحد؟)',
+        correct: true,
+        explanations: [
+            'Correct! The nature of the wave depends on boundary conditions.',
+            'Incorrect. Boundary conditions produce standing waves from traveling waves.'
+        ]
+    },
+    // True (Ch11 - Q28)
+    {
+        type: 'tf',
+        question: 'Normal mode analysis reduces a complex vibrating system to a set of independent harmonic oscillators. (Ch11 - Q28)\n(بالعربية: يقلل تحليل الأنماط الطبيعية النظام المهتز المعقد إلى مجموعة من المتذبذبات التوافقية المستقلة؟)',
+        correct: true,
+        explanations: [
+            'Correct! Normal modes decouple the system.',
+            'Incorrect. This is the purpose of normal mode analysis.'
+        ]
+    },
+    // False (Ch11 - Q29)
+    {
+        type: 'tf',
+        question: 'In a vibrating string, the frequency of the first overtone is the same as the fundamental frequency. (Ch11 - Q29)\n(بالعربية: في وتر مهتز، تردد النغمة الفوقية الأولى يساوي نفس تردد النغمة الأساسية؟)',
+        correct: false,
+        explanations: [
+            'Incorrect. The first overtone is higher in frequency than the fundamental.',
+            'Correct! The first overtone is a multiple of the fundamental frequency.'
+        ]
+    },
+    // True (Ch11 - Q30)
+    {
+        type: 'tf',
+        question: 'Small oscillations about a stable equilibrium lead to sinusoidal motion with frequency determined by the curvature of the potential. (Ch11 - Q30)\n(بالعربية: التذبذبات الصغيرة حول اتزان مستقر تؤدي إلى حركة جيبية بتردد يحدده تقوس الجهد؟)',
+        correct: true,
+        explanations: [
+            'Correct! The second derivative of V at equilibrium sets the frequency.',
+            'Incorrect. That’s exactly how frequency is determined.'
         ]
     }
-    // Add more questions as needed up to 40
 ];
 
 
