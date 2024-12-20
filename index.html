@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Security Quiz</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Quicksand&family=Nunito&family=Courier+Prime&family=Comfortaa&family=Poppins&family=Caveat&family=Varela+Round&family=Raleway&family=Montserrat&display=swap');
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            background: #e0f7fa;
+            color: #004d40;
+        }
+        .quiz-container {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 40px;
+            background: #ffffff;
+            color: #004d40;
+            border-radius: 10px;
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #00796b;
+            margin-bottom: 40px;
+        }
+        .question {
+            margin-bottom: 25px;
+        }
+        .answers {
+            margin: 15px 0;
+        }
+        .answers button, .navigation button {
+            font-family: 'Varela Round', sans-serif; 
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 14px;
+            background: #81dbd3;
+            color: #004d40;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .answers button:hover {
+            background: #80cbc4;
+        }
+        .explanation {
+            display: none;
+            margin-top: 15px;
+            padding: 20px;
+            background: #e0f2f1;
+            border-left: 4px solid #00796b;
+            border-radius: 5px;
+        }
+        .explanation.correct {
+            color: green;
+            border-left-color: green;
+        }
+        .explanation.incorrect {
+            color: red;
+            border-left-color: red;
+        }
+        .show {
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .navigation button {
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Database Security Quiz</h1>
+
+        <!-- Dynamic Questions -->
+        <div id="quiz-content"></div>
+
+        <!-- Navigation Buttons -->
+        <div class="navigation">
+            <button id="prev-btn" onclick="prevQuestion()">Previous</button>
+            <button id="next-btn" onclick="nextQuestion()">Next</button>
+        </div>
+    </div>
+
+    <script>
+const questions = [
+    // Physics Formulas True/False Questions
+    {
+        type: 'tf',
+        question: 'The formula for the center of mass of a system is \\( \\vec{r}_{\\text{cm}} = \\frac{\\sum m_i \\vec{r}_i}{\\sum m_i} \\).',
+        correct: true,
+        explanations: [
+            'Correct! This is the standard formula for calculating the center of mass.',
+            'Incorrect. This is indeed the correct formula for the center of mass.'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'The linear momentum of a system is given by \\( \\vec{p} = \\sum m_i \\vec{v}_i \\).',
+        correct: true,
+        explanations: [
+            'Correct! The total linear momentum of a system is the sum of the momenta of individual particles.',
+            'Incorrect. This formula is correct for the linear momentum of a system.'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'Newton’s second law for systems is \\( M \\vec{a}_{\\text{cm}} = \\sum \\vec{F}_{\\text{ext}} + \\sum \\vec{F}_{\\text{int}} \\).',
+        correct: false,
+        explanations: [
+            'Incorrect. Internal forces cancel out, so only external forces contribute: \\( M \\vec{a}_{\\text{cm}} = \\sum \\vec{F}_{\\text{ext}} \\).',
+            'Correct! Internal forces cancel, leaving only external forces in Newton’s second law for systems.'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'The moment of inertia about a given axis is defined as \\( I = \\int r^3 \\, dm \\).',
+        correct: false,
+        explanations: [
+            'Incorrect. The correct formula is \\( I = \\int r^2 \\, dm \\), not \\( r^3 \\).',
+            'Correct! The power of \\( r \\) in the formula for moment of inertia is 2, not 3.'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'The torque on a rigid body is related to angular acceleration by \\( \\tau = I \\alpha \\).',
+        correct: true,
+        explanations: [
+            'Correct! Torque is the product of moment of inertia and angular acceleration.',
+            'Incorrect. This formula correctly relates torque and angular acceleration.'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'The angular momentum of a rigid body is given by \\( \\vec{L} = \\int \\vec{r} \\times m \\vec{v} \\, dm \\).',
+        correct: true,
+        explanations: [
+            'Correct! This formula calculates the angular momentum for a continuous system.',
+            'Incorrect. This is the correct formula for angular momentum in a continuous system.'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'The rotational kinetic energy of a rigid body is \\( T = \\frac{1}{2} I \\alpha^2 \\).',
+        correct: false,
+        explanations: [
+            'Incorrect. The correct formula is \\( T = \\frac{1}{2} I \\omega^2 \\), using angular velocity \\( \\omega \\).',
+            'Correct! Rotational kinetic energy uses angular velocity, not angular acceleration.'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'The total kinetic energy of a system can be expressed as \\( T = \\frac{1}{2} M v_{\\text{cm}}^2 + \\frac{1}{2} I \\omega^2 \\).',
+        correct: true,
+        explanations: [
+            'Correct! This combines translational and rotational kinetic energies.',
+            'Incorrect. This is the correct total kinetic energy formula for a system.'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'Euler’s equations for rotational motion in three dimensions include \\( I_1 \\dot{\\omega}_1 + (I_2 - I_3) \\omega_2 \\omega_3 = \\tau_1 \\).',
+        correct: false,
+        explanations: [
+            'Incorrect. The correct formula is \\( I_1 \\dot{\\omega}_1 - (I_2 - I_3) \\omega_2 \\omega_3 = \\tau_1 \\).',
+            'Correct! The sign between terms involving moments of inertia is negative.'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'Lagrange’s equations are derived from the formula \\( \\frac{d}{dt} \\left( \\frac{\\partial L}{\\partial \\dot{q}_j} \\right) - \\frac{\\partial L}{\\partial q_j} = 0 \\).',
+        correct: true,
+        explanations: [
+            'Correct! This is the fundamental form of Lagrange’s equations.',
+            'Incorrect. This is the correct formula for Lagrange’s equations.'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'The Lagrangian function is defined as \\( L = V - T \\).',
+        correct: false,
+        explanations: [
+            'Incorrect. The Lagrangian is \\( L = T - V \\), not \\( V - T \\).',
+            'Correct! The Lagrangian function is \\( T - V \\).'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'Hamilton’s principle states \\( \\delta \\int_{t_1}^{t_2} T \\, dt = 0 \\).',
+        correct: false,
+        explanations: [
+            'Incorrect. The correct integral involves the Lagrangian: \\( \\delta \\int_{t_1}^{t_2} L \\, dt = 0 \\).',
+            'Correct! Hamilton’s principle uses the Lagrangian, not just the kinetic energy.'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'The angular frequency of a simple harmonic oscillator is \\( \\omega = \\sqrt{\\frac{m}{k}} \\).',
+        correct: false,
+        explanations: [
+            'Incorrect. The correct formula is \\( \\omega = \\sqrt{\\frac{k}{m}} \\), with \\( k \\) in the numerator.',
+            'Correct! The stiffness constant \\( k \\) should be in the numerator.'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'For coupled oscillators, the general motion is \\( q(t) = A_1 \\sin(\\omega_1 t) + A_2 \\sin(\\omega_2 t) \\).',
+        correct: false,
+        explanations: [
+            'Incorrect. The correct formula uses cosine: \\( q(t) = A_1 \\cos(\\omega_1 t) + A_2 \\cos(\\omega_2 t) \\).',
+            'Correct! The general motion formula for coupled oscillators involves cosine, not sine.'
+        ]
+    },
+    {
+        type: 'tf',
+        question: 'The energy of a simple harmonic oscillator is given by \\( E = \\frac{1}{2} k x^2 + \\frac{1}{2} m v^2 \\).',
+        correct: true,
+        explanations: [
+            'Correct! This formula includes both potential and kinetic energy terms.',
+            'Incorrect. This is the correct formula for the energy of a simple harmonic oscillator.'
+        ]
+    }
+    // Add more questions as needed up to 40
+];
+
+
+
+
+
+
+
+
+        let currentQuestionIndex = 0;
+
+        function renderQuiz() {
+            const quizContent = document.getElementById('quiz-content');
+            quizContent.innerHTML = '';
+            const q = questions[currentQuestionIndex];
+
+            const questionDiv = document.createElement('div');
+            questionDiv.classList.add('question');
+
+            const questionText = document.createElement('h3');
+            questionText.innerText = `${currentQuestionIndex + 1}. ${q.question}`;
+            questionDiv.appendChild(questionText);
+
+            if (q.type === 'mcq') {
+                const answersDiv = document.createElement('div');
+                answersDiv.classList.add('answers');
+                q.options.forEach((option, i) => {
+                    const button = document.createElement('button');
+                    button.innerText = option;
+                    button.onclick = () => showExplanation(currentQuestionIndex, i === q.correct);
+                    answersDiv.appendChild(button);
+                });
+                questionDiv.appendChild(answersDiv);
+            } else if (q.type === 'tf') {
+                const answersDiv = document.createElement('div');
+                answersDiv.classList.add('answers');
+                ['True', 'False'].forEach((option, i) => {
+                    const button = document.createElement('button');
+                    button.innerText = option;
+                    button.onclick = () => showExplanation(currentQuestionIndex, (i === 0) === q.correct);
+                    answersDiv.appendChild(button);
+                });
+                questionDiv.appendChild(answersDiv);
+            } else if (q.type === 'fib') {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.placeholder = 'Your answer here';
+                const button = document.createElement('button');
+                button.innerText = 'Submit';
+                button.onclick = () => checkFibAnswer(currentQuestionIndex, input.value);
+                questionDiv.appendChild(input);
+                questionDiv.appendChild(button);
+            }
+
+            const explanationDiv = document.createElement('div');
+            explanationDiv.classList.add('explanation');
+            explanationDiv.id = `explanation-${currentQuestionIndex}`;
+            questionDiv.appendChild(explanationDiv);
+
+            quizContent.appendChild(questionDiv);
+            if (window.MathJax && window.MathJax.typesetPromise) {
+            MathJax.typesetPromise();
+        }
+          document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
+        document.getElementById('next-btn').disabled = currentQuestionIndex === questions.length - 1;
+    
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
+            document.getElementById('next-btn').disabled = currentQuestionIndex === questions.length - 1;
+        }
+
+        function showExplanation(index, isCorrect) {
+            const explanationDiv = document.getElementById(`explanation-${index}`);
+            const q = questions[index];
+            explanationDiv.classList.remove('correct', 'incorrect');
+            if (q.type === 'mcq' || q.type === 'tf') {
+                if (Array.isArray(q.explanations)) {
+                    explanationDiv.innerHTML = q.explanations[isCorrect ? q.correct : +!q.correct];
+                } else {
+                    explanationDiv.innerHTML = isCorrect ? q.explanations : `Incorrect. ${q.explanations}`;
+                }
+            }
+            explanationDiv.classList.add(isCorrect ? 'correct' : 'incorrect', 'show');
+        }
+
+        function checkFibAnswer(index, userAnswer) {
+            const explanationDiv = document.getElementById(`explanation-${index}`);
+            const q = questions[index];
+            explanationDiv.classList.remove('correct', 'incorrect');
+            if (q.type === 'fib') {
+                const isCorrect = userAnswer.trim().toUpperCase() === q.correct.toUpperCase();
+                explanationDiv.innerHTML = isCorrect
+                    ? q.explanations
+                    : `Incorrect. The correct answer is ${q.correct}.`;
+                explanationDiv.classList.add(isCorrect ? 'correct' : 'incorrect', 'show');
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                renderQuiz();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuiz();
+            }
+        }
+
+        renderQuiz();
+    </script>
+</body>
+</html>
