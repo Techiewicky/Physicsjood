@@ -38,12 +38,14 @@
         }
         .question {
             margin-bottom: 25px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
         }
         .answers {
             margin: 15px 0;
         }
-        .answers button, .navigation button {
-            font-family: 'Varela Round', sans-serif; 
+        .answers button {
+            font-family: 'Varela Round', sans-serif;
             font-weight: bold;
             display: block;
             width: 100%;
@@ -79,30 +81,13 @@
         .show {
             display: block;
         }
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        .navigation button {
-            width: 48%;
-        }
     </style>
 </head>
 <body>
     <div class="quiz-container">
         <h1>Physics Quiz For Jood</h1>
-
-        <!-- Dynamic Questions -->
         <div id="quiz-content"></div>
-
-        <!-- Navigation Buttons -->
-        <div class="navigation">
-            <button id="prev-btn" onclick="prevQuestion()">Previous</button>
-            <button id="next-btn" onclick="nextQuestion()">Next</button>
-        </div>
     </div>
-
     <script>
 const questions = [
     // -----------------------------
@@ -121,7 +106,7 @@ const questions = [
     // True (Ch7 - Q2)
     {
         type: 'tf',
-        question: 'The linear momentum of a system is given by \\( \\mathbf{P} = \sum m_i \\mathbf{v}_i \\). (Ch7 - Q2)\n(بالعربية: الزخم الخطي للنظام معطى بـ \\( \\mathbf{P} = \sum m_i \\mathbf{v}_i \\)؟)',
+        question: 'The linear momentum of a system is given by \\( \\mathbf{P} = \\sum m_i \\mathbf{v}_i \\). (Ch7 - Q2)\n(بالعربية: الزخم الخطي للنظام معطى بـ \\( \\mathbf{P} = \\sum m_i \\mathbf{v}_i \\)؟)',
         correct: true,
         explanations: [
             'Correct! The total linear momentum is the vector sum of all individual momenta.',
@@ -131,7 +116,7 @@ const questions = [
     // True (Ch7 - Q3)
     {
         type: 'tf',
-        question: 'The angular momentum of a system about an origin can be written as \\( \\mathbf{L} = \sum_{i} (\\mathbf{r}_i \times m_i \\mathbf{v}_i) \\). (Ch7 - Q3)\n(بالعربية: يمكن كتابة العزم الزاوي للنظام حول نقطة الأصل بـ \\( \\mathbf{L} = \sum_{i} (\\mathbf{r}_i \times m_i \\mathbf{v}_i) \\)؟)',
+        question: 'The angular momentum of a system about an origin can be written as \\( \\mathbf{L} = \\sum_{i} (\\mathbf{r}_i \\times m_i \\mathbf{v}_i) \\). (Ch7 - Q3)\n(بالعربية: يمكن كتابة العزم الزاوي للنظام حول نقطة الأصل بـ \\( \\mathbf{L} = \\sum_{i} (\\mathbf{r}_i \\times m_i \\mathbf{v}_i) \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is the standard definition of the total angular momentum of a system.',
@@ -194,7 +179,7 @@ const questions = [
         question: 'The rocket equation without external forces is given by \\( v = v_{\\text{rel}} / (m_0/m) \\). (Ch7 - Q9)\n(بالعربية: معادلة الصاروخ بدون قوى خارجية هي \\( v = v_{\\text{rel}} / (m_0/m) \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. The correct rocket equation is \\( v = v_{\\text{rel}} \ln(m_0/m) \\).',
+            'Incorrect. The correct rocket equation is \\( v = v_{\\text{rel}} \\ln(m_0/m) \\).',
             'Correct! The formula given is incorrect; it should involve a logarithm.'
         ]
     },
@@ -234,7 +219,7 @@ const questions = [
         question: 'The reduced mass is always equal to the smaller of the two masses involved. (Ch7 - Q13)\n(بالعربية: الكتلة المخفضة تساوي دائماً الكتلة الأصغر بين الكتلتين؟)',
         correct: false,
         explanations: [
-            'Incorrect. The reduced mass is \\( \mu = \frac{m_1 m_2}{m_1 + m_2} \\), not simply the smaller mass.',
+            'Incorrect. The reduced mass is \\( \\mu = \\frac{m_1 m_2}{m_1 + m_2} \\), not simply the smaller mass.',
             'Correct! Reduced mass is a specific combination, not just the smaller mass.'
         ]
     },
@@ -261,7 +246,7 @@ const questions = [
     // True (Ch7 - Q16)
     {
         type: 'tf',
-        question: 'For a two-body gravitational problem, transforming to the center of mass frame reduces it to a single particle of mass \\( \mu \\) moving in a potential. (Ch7 - Q16)\n(بالعربية: في مشكلة جسمين تحت تأثير الجاذبية، التحويل إلى إطار مركز الكتلة يحولها إلى جسيم واحد بكتلة مخفضة؟)',
+        question: 'For a two-body gravitational problem, transforming to the center of mass frame reduces it to a single particle of mass \\( \\mu \\) moving in a potential. (Ch7 - Q16)\n(بالعربية: في مشكلة جسمين تحت تأثير الجاذبية، التحويل إلى إطار مركز الكتلة يحولها إلى جسيم واحد بكتلة مخفضة؟)',
         correct: true,
         explanations: [
             'Correct! This is the standard approach to solve two-body problems.',
@@ -294,7 +279,7 @@ const questions = [
         question: 'The rocket equation includes a factor of \\( (m/m_0) \\) multiplied directly, without a logarithm. (Ch7 - Q19)\n(بالعربية: معادلة الصاروخ تتضمن عاملاً \\( (m/m_0) \\) مضروباً مباشرة بدون لوغاريتم؟)',
         correct: false,
         explanations: [
-            'Incorrect. The correct Tsiolkovsky rocket equation uses a natural logarithm: \\( v = v_{rel} \ln(m_0/m) \\).',
+            'Incorrect. The correct Tsiolkovsky rocket equation uses a natural logarithm: \\( v = v_{rel} \\ln(m_0/m) \\).',
             'Correct! The equation must include a logarithm, not just a ratio.'
         ]
     },
@@ -341,7 +326,7 @@ const questions = [
     // True (Ch7 - Q24)
     {
         type: 'tf',
-        question: 'The rocket equation assumes mass is lost from the rocket at a specific exhaust velocity. (Ch7 - Q24)\n(بالعربية: تفترض معادلة الصاروخ فقدان كتلة الصاروخ بسرعه محدده للعادم؟)',
+        question: 'The rocket equation assumes mass is lost from the rocket at a specific exhaust velocity. (Ch7 - Q24)\n(بالعربية: تفترض معادلة الصاروخ فقدان كتلة الصاروخ بسرعة محددة للعادم؟)',
         correct: true,
         explanations: [
             'Correct! The Tsiolkovsky rocket equation is based on a constant exhaust velocity.',
@@ -391,7 +376,7 @@ const questions = [
     // True (Ch7 - Q29)
     {
         type: 'tf',
-        question: 'The Tsiolkovsky rocket equation is \\( v = v_{rel} \ln(\frac{m_0}{m}) \\). (Ch7 - Q29)\n(بالعربية: معادلة الصاروخ لتسيولكوفسكي هي \\( v = v_{rel} \ln(\frac{m_0}{m}) \\)؟)',
+        question: 'The Tsiolkovsky rocket equation is \\( v = v_{rel} \\ln(\\frac{m_0}{m}) \\). (Ch7 - Q29)\n(بالعربية: معادلة الصاروخ لتسيولكوفسكي هي \\( v = v_{rel} \\ln(\\frac{m_0}{m}) \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is the well-known Tsiolkovsky rocket equation.',
@@ -415,7 +400,7 @@ const questions = [
     // True (Ch8 - Q1)
     {
         type: 'tf',
-        question: 'The moment of inertia about a given axis is defined as \\( I = \int r^2 \, dm \\). (Ch8 - Q1)\n(بالعربية: عزم القصور الذاتي حول محور معطى يعرف بـ \\( I = \int r^2 \, dm \\)؟)',
+        question: 'The moment of inertia about a given axis is defined as \\( I = \\int r^2 \\, dm \\). (Ch8 - Q1)\n(بالعربية: عزم القصور الذاتي حول محور معطى يعرف بـ \\( I = \\int r^2 \\, dm \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is the fundamental definition of moment of inertia.',
@@ -435,17 +420,17 @@ const questions = [
     // False (Ch8 - Q3)
     {
         type: 'tf',
-        question: 'The radius of gyration is defined as \\( k = \frac{I}{M} \\). (Ch8 - Q3)\n(بالعربية: نصف قطر الدوران يعرف بـ \\( k = \frac{I}{M} \\)؟)',
+        question: 'The radius of gyration is defined as \\( k = \\frac{I}{M} \\). (Ch8 - Q3)\n(بالعربية: نصف قطر الدوران يعرف بـ \\( k = \\frac{I}{M} \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. The radius of gyration is \\( k = \sqrt{\frac{I}{M}} \\), not \\( \frac{I}{M} \\).',
+            'Incorrect. The radius of gyration is \\( k = \\sqrt{\\frac{I}{M}} \\), not \\( \\frac{I}{M} \\).',
             'Correct! It should be the square root of I/M.'
         ]
     },
     // True (Ch8 - Q4)
     {
         type: 'tf',
-        question: 'For a thin rod rotating about one end perpendicular to its length, \\( I = \frac{1}{3} M L^2 \\). (Ch8 - Q4)\n(بالعربية: لقضيب رفيع يدور حول أحد طرفيه عمودياً على طوله، \\( I = \frac{1}{3} M L^2 \\)؟)',
+        question: 'For a thin rod rotating about one end perpendicular to its length, \\( I = \\frac{1}{3} M L^2 \\). (Ch8 - Q4)\n(بالعربية: لقضيب رفيع يدور حول أحد طرفيه عمودياً على طوله، \\( I = \\frac{1}{3} M L^2 \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is a standard moment of inertia result.',
@@ -455,7 +440,7 @@ const questions = [
     // True (Ch8 - Q5)
     {
         type: 'tf',
-        question: 'The torque is related to angular acceleration by \\( \tau = I \alpha \\). (Ch8 - Q5)\n(بالعربية: العزم مرتبط بالتسارع الزاوي بـ \\( \tau = I \alpha \\)؟)',
+        question: 'The torque is related to angular acceleration by \\( \\tau = I \\alpha \\). (Ch8 - Q5)\n(بالعربية: العزم مرتبط بالتسارع الزاوي بـ \\( \\tau = I \\alpha \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is the rotational analogue of F = ma.',
@@ -465,7 +450,7 @@ const questions = [
     // True (Ch8 - Q6)
     {
         type: 'tf',
-        question: 'The kinetic energy of a rigid body rotating about a fixed axis is given by \\( T = \tfrac{1}{2} I \omega^2 \\). (Ch8 - Q6)\n(بالعربية: الطاقة الحركية لجسم صلب يدور حول محور ثابت هي \\( T = \frac{1}{2} I \omega^2 \\)؟)',
+        question: 'The kinetic energy of a rigid body rotating about a fixed axis is given by \\( T = \\frac{1}{2} I \\omega^2 \\). (Ch8 - Q6)\n(بالعربية: الطاقة الحركية لجسم صلب يدور حول محور ثابت هي \\( T = \\frac{1}{2} I \\omega^2 \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is the standard formula for rotational kinetic energy.',
@@ -475,10 +460,10 @@ const questions = [
     // False (Ch8 - Q7)
     {
         type: 'tf',
-        question: 'The moment of inertia of a solid sphere about its diameter is \\( I = \frac{2}{3} M R^2 \\). (Ch8 - Q7)\n(بالعربية: عزم القصور الذاتي لكرة صلبة حول قطرها هو \\( \frac{2}{3} M R^2 \\)؟)',
+        question: 'The moment of inertia of a solid sphere about its diameter is \\( I = \\frac{2}{3} M R^2 \\). (Ch8 - Q7)\n(بالعربية: عزم القصور الذاتي لكرة صلبة حول قطرها هو \\( \\frac{2}{3} M R^2 \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. For a solid sphere about its diameter, \\( I = \frac{2}{5} M R^2 \\).',
+            'Incorrect. For a solid sphere about its diameter, \\( I = \\frac{2}{5} M R^2 \\).',
             'Correct! The correct formula is 2/5, not 2/3.'
         ]
     },
@@ -495,17 +480,17 @@ const questions = [
     // False (Ch8 - Q9)
     {
         type: 'tf',
-        question: 'For a thin rod about its center, the moment of inertia is \\( I = \frac{1}{3} M L^2 \\). (Ch8 - Q9)\n(بالعربية: لقضيب رفيع حول مركزه، عزم القصور هو \\( \frac{1}{3} M L^2 \\)؟)',
+        question: 'For a thin rod about its center, the moment of inertia is \\( I = \\frac{1}{3} M L^2 \\). (Ch8 - Q9)\n(بالعربية: لقضيب رفيع حول مركزه، عزم القصور هو \\( \\frac{1}{3} M L^2 \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. About its center, it should be \\( I = \frac{1}{12} M L^2 \\).',
+            'Incorrect. About its center, it should be \\( I = \\frac{1}{12} M L^2 \\).',
             'Correct! The correct value is 1/12, not 1/3.'
         ]
     },
     // True (Ch8 - Q10)
     {
         type: 'tf',
-        question: 'A physical pendulum’s period is given by \\( T = 2\pi \sqrt{\frac{I}{M g L}} \\). (Ch8 - Q10)\n(بالعربية: زمن دورة البندول الفيزيائي معطى بـ \\( T = 2\pi \sqrt{\frac{I}{M g L}} \\)؟)',
+        question: 'A physical pendulum’s period is given by \\( T = 2\\pi \\sqrt{\\frac{I}{M g L}} \\). (Ch8 - Q10)\n(بالعربية: زمن دورة البندول الفيزيائي معطى بـ \\( T = 2\\pi \\sqrt{\\frac{I}{M g L}} \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is the standard formula for a physical pendulum.',
@@ -515,17 +500,17 @@ const questions = [
     // False (Ch8 - Q11)
     {
         type: 'tf',
-        question: 'If a rigid body rolls without slipping, then \\( v = 2 r \omega \\). (Ch8 - Q11)\n(بالعربية: إذا تدحرج جسم صلب دون انزلاق، فعندئذٍ \\( v = 2 r \omega \\)؟)',
+        question: 'If a rigid body rolls without slipping, then \\( v = 2 r \\omega \\). (Ch8 - Q11)\n(بالعربية: إذا تدحرج جسم صلب دون انزلاق، فعندئذٍ \\( v = 2 r \\omega \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. The correct condition for rolling without slipping is \\( v = r \omega \\).',
+            'Incorrect. The correct condition for rolling without slipping is \\( v = r \\omega \\).',
             'Correct! It should be v = r ω, not 2r ω.'
         ]
     },
     // True (Ch8 - Q12)
     {
         type: 'tf',
-        question: 'The angular momentum of a rigid body rotating about a fixed axis is \\( L = I \omega \\). (Ch8 - Q12)\n(بالعربية: العزم الزاوي لجسم صلب يدور حول محور ثابت هو \\( L = I \omega \\)؟)',
+        question: 'The angular momentum of a rigid body rotating about a fixed axis is \\( L = I \\omega \\). (Ch8 - Q12)\n(بالعربية: العزم الزاوي لجسم صلب يدور حول محور ثابت هو \\( L = I \\omega \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is the standard relation for angular momentum.',
@@ -535,7 +520,7 @@ const questions = [
     // True (Ch8 - Q13)
     {
         type: 'tf',
-        question: 'For rolling motion, the total kinetic energy is the sum of translational and rotational parts: \\( T = \frac{1}{2} M v_{cm}^2 + \frac{1}{2} I_{cm}\omega^2 \\). (Ch8 - Q13)\n(بالعربية: في حالة التدحرج، الطاقة الحركية الكلية هي مجموع طاقة انتقالية ودورانية: \\( T = \frac{1}{2} M v_{cm}^2 + \frac{1}{2} I_{cm}\omega^2 \\)؟)',
+        question: 'For rolling motion, the total kinetic energy is the sum of translational and rotational parts: \\( T = \\frac{1}{2} M v_{cm}^2 + \\frac{1}{2} I_{cm}\\omega^2 \\). (Ch8 - Q13)\n(بالعربية: في حالة التدحرج، الطاقة الحركية الكلية هي مجموع طاقة انتقالية ودورانية: \\( T = \\frac{1}{2} M v_{cm}^2 + \\frac{1}{2} I_{cm}\\omega^2 \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is the correct expression for kinetic energy of a rolling body.',
@@ -565,10 +550,10 @@ const questions = [
     // False (Ch8 - Q16)
     {
         type: 'tf',
-        question: 'The kinetic energy of a rotating body is given by \\( T = \frac{1}{4} I \omega^2 \\). (Ch8 - Q16)\n(بالعربية: الطاقة الحركية لجسم يدور هي \\( \frac{1}{4} I \omega^2 \\)؟)',
+        question: 'The kinetic energy of a rotating body is given by \\( T = \\frac{1}{4} I \\omega^2 \\). (Ch8 - Q16)\n(بالعربية: الطاقة الحركية لجسم يدور هي \\( \\frac{1}{4} I \\omega^2 \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. The correct formula is \\( T = \frac{1}{2} I \omega^2 \\).',
+            'Incorrect. The correct formula is \\( T = \\frac{1}{2} I \\omega^2 \\).',
             'Correct! It should be half, not a quarter.'
         ]
     },
@@ -585,10 +570,10 @@ const questions = [
     // False (Ch8 - Q18)
     {
         type: 'tf',
-        question: 'The physical pendulum formula for period is the same as that of a simple pendulum: \\( T = 2\pi \sqrt{\frac{L}{g}} \\). (Ch8 - Q18)\n(بالعربية: صيغة زمن دورة البندول الفيزيائي هي نفسها للبندول البسيط: \\( T = 2\pi \sqrt{\frac{L}{g}} \\)؟)',
+        question: 'The physical pendulum formula for period is the same as that of a simple pendulum: \\( T = 2\\pi \\sqrt{\\frac{L}{g}} \\). (Ch8 - Q18)\n(بالعربية: صيغة زمن دورة البندول الفيزيائي هي نفسها للبندول البسيط: \\( T = 2\\pi \\sqrt{\\frac{L}{g}} \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. The physical pendulum formula involves the moment of inertia: \\( T = 2\pi \sqrt{\frac{I}{M g L}} \\).',
+            'Incorrect. The physical pendulum formula involves the moment of inertia: \\( T = 2\\pi \\sqrt{\\frac{I}{M g L}} \\).',
             'Correct! They are not the same formula.'
         ]
     },
@@ -605,10 +590,10 @@ const questions = [
     // False (Ch8 - Q20)
     {
         type: 'tf',
-        question: 'A solid cylinder’s moment of inertia about its central axis is \\( I = \frac{1}{4} M R^2 \\). (Ch8 - Q20)\n(بالعربية: عزم القصور لأسطوانة مصمتة حول محورها المركزي هو \\( \frac{1}{4} M R^2 \\)؟)',
+        question: 'A solid cylinder’s moment of inertia about its central axis is \\( I = \\frac{1}{4} M R^2 \\). (Ch8 - Q20)\n(بالعربية: عزم القصور لأسطوانة مصمتة حول محورها المركزي هو \\( \\frac{1}{4} M R^2 \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. For a solid cylinder, \\( I = \frac{1}{2} M R^2 \\).',
+            'Incorrect. For a solid cylinder, \\( I = \\frac{1}{2} M R^2 \\).',
             'Correct! The known formula is 1/2 M R², not 1/4.'
         ]
     },
@@ -635,7 +620,7 @@ const questions = [
     // False (Ch8 - Q23)
     {
         type: 'tf',
-        question: 'The radius of gyration is defined using a cube root: \\( k = \sqrt[3]{\frac{I}{M}} \\). (Ch8 - Q23)\n(بالعربية: يعرف نصف قطر الدوران باستخدام الجذر التكعيبي: \\( k = \sqrt[3]{\frac{I}{M}} \\)؟)',
+        question: 'The radius of gyration is defined using a cube root: \\( k = \\sqrt[3]{\\frac{I}{M}} \\). (Ch8 - Q23)\n(بالعربية: يعرف نصف قطر الدوران باستخدام الجذر التكعيبي: \\( k = \\sqrt[3]{\\frac{I}{M}} \\)؟)',
         correct: false,
         explanations: [
             'Incorrect. The radius of gyration uses a square root, not a cube root.',
@@ -645,7 +630,7 @@ const questions = [
     // True (Ch8 - Q24)
     {
         type: 'tf',
-        question: 'The angular momentum of a rigid body in planar motion can be expressed as \\( L = I \omega \\) for an axis perpendicular to the plane. (Ch8 - Q24)\n(بالعربية: يمكن التعبير عن العزم الزاوي لجسم صلب في حركة مستوية بـ \\( L = I \omega \\) لمحور عمودي على المستوي؟)',
+        question: 'The angular momentum of a rigid body in planar motion can be expressed as \\( L = I \\omega \\) for an axis perpendicular to the plane. (Ch8 - Q24)\n(بالعربية: يمكن التعبير عن العزم الزاوي لجسم صلب في حركة مستوية بـ \\( L = I \\omega \\) لمحور عمودي على المستوي؟)',
         correct: true,
         explanations: [
             'Correct! This applies for planar rotation about a fixed axis.',
@@ -658,7 +643,7 @@ const questions = [
         question: 'A physical pendulum has no dependence on its moment of inertia for the period of oscillation. (Ch8 - Q25)\n(بالعربية: لا يعتمد البندول الفيزيائي على عزمه القصوري عند حساب زمن الدورة؟)',
         correct: false,
         explanations: [
-            'Incorrect. The period depends on I, as seen in the formula \\( T = 2\pi\sqrt{\frac{I}{MgL}} \\).',
+            'Incorrect. The period depends on I, as seen in the formula \\( T = 2\\pi\\sqrt{\\frac{I}{M g L}} \\).',
             'Correct! It definitely depends on I.'
         ]
     },
@@ -719,10 +704,10 @@ const questions = [
     // True (Ch9 - Q1)
     {
         type: 'tf',
-        question: 'The moment of inertia tensor \\( \mathbf{I} \\) is a 3x3 matrix that relates angular velocity to angular momentum. (Ch9 - Q1)\n(بالعربية: مصفوفة عزم القصور الذاتي \\( \mathbf{I} \\) هي مصفوفة 3x3 تربط السرعة الزاوية بالعزم الزاوي؟)',
+        question: 'The moment of inertia tensor \\( \\mathbf{I} \\) is a 3x3 matrix that relates angular velocity to angular momentum. (Ch9 - Q1)\n(بالعربية: مصفوفة عزم القصور الذاتي \\( \\mathbf{I} \\) هي مصفوفة 3x3 تربط السرعة الزاوية بالعزم الزاوي؟)',
         correct: true,
         explanations: [
-            'Correct! \\( \mathbf{L} = \mathbf{I}\boldsymbol{\omega} \\).',
+            'Correct! \\( \\mathbf{L} = \\mathbf{I}\\boldsymbol{\\omega} \\).',
             'Incorrect. This is the fundamental definition of the inertia tensor.'
         ]
     },
@@ -749,7 +734,7 @@ const questions = [
     // True (Ch9 - Q4)
     {
         type: 'tf',
-        question: 'Euler’s equations for a rigid body without external torque are \\( I_1 \dot{\omega}_1 = (I_2 - I_3) \omega_2 \omega_3 \\) and cyclic permutations. (Ch9 - Q4)\n(بالعربية: معادلات أويلر لجسم صلب بدون عزم خارجي هي \\( I_1 \dot{\omega}_1 = (I_2 - I_3)\omega_2 \omega_3 \\) والتباديل الدورية؟)',
+        question: 'Euler’s equations for a rigid body without external torque are \\( I_1 \\dot{\\omega}_1 = (I_2 - I_3) \\omega_2 \\omega_3 \\) and cyclic permutations. (Ch9 - Q4)\n(بالعربية: معادلات أويلر لجسم صلب بدون عزم خارجي هي \\( I_1 \\dot{\\omega}_1 = (I_2 - I_3)\\omega_2 \\omega_3 \\) والتباديل الدورية؟)',
         correct: true,
         explanations: [
             'Correct! This is the standard form of Euler’s equations.',
@@ -769,7 +754,7 @@ const questions = [
     // True (Ch9 - Q6)
     {
         type: 'tf',
-        question: 'The kinetic energy of a rotating rigid body in 3D can be written as \\( T = \frac{1}{2}\boldsymbol{\omega}^T \mathbf{I} \boldsymbol{\omega} \\). (Ch9 - Q6)\n(بالعربية: يمكن كتابة الطاقة الحركية لجسم صلب يدور في ثلاثية الأبعاد بـ \\( T = \frac{1}{2}\boldsymbol{\omega}^T \mathbf{I} \boldsymbol{\omega} \\)؟)',
+        question: 'The kinetic energy of a rotating rigid body in 3D can be written as \\( T = \\frac{1}{2}\\boldsymbol{\\omega}^T \\mathbf{I} \\boldsymbol{\\omega} \\). (Ch9 - Q6)\n(بالعربية: يمكن كتابة الطاقة الحركية لجسم صلب يدور في ثلاثية الأبعاد بـ \\( T = \\frac{1}{2}\\boldsymbol{\\omega}^T \\mathbf{I} \\boldsymbol{\\omega} \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is the general 3D form of rotational kinetic energy.',
@@ -789,7 +774,7 @@ const questions = [
     // True (Ch9 - Q8)
     {
         type: 'tf',
-        question: 'With no external torque, the angular momentum \\( \mathbf{L} \\) of a rigid body is conserved. (Ch9 - Q8)\n(بالعربية: في غياب عزم خارجي، يحفظ العزم الزاوي \\( \mathbf{L} \\) للجسم الصلب؟)',
+        question: 'With no external torque, the angular momentum \\( \\mathbf{L} \\) of a rigid body is conserved. (Ch9 - Q8)\n(بالعربية: في غياب عزم خارجي، يحفظ العزم الزاوي \\( \\mathbf{L} \\) للجسم الصلب؟)',
         correct: true,
         explanations: [
             'Correct! Conservation of angular momentum applies here.',
@@ -819,7 +804,7 @@ const questions = [
     // True (Ch9 - Q11)
     {
         type: 'tf',
-        question: 'In free rotation, the vector \\( \mathbf{L} \\) remains fixed in space, and the body’s angular velocity \\( \boldsymbol{\omega} \\) precesses around it. (Ch9 - Q11)\n(بالعربية: في الدوران الحر، يظل متجه العزم الزاوي ثابتاً في الفضاء، وتدور السرعة الزاوية حوله؟)',
+        question: 'In free rotation, the vector \\( \\mathbf{L} \\) remains fixed in space, and the body’s angular velocity \\( \\boldsymbol{\\omega} \\) precesses around it. (Ch9 - Q11)\n(بالعربية: في الدوران الحر، يظل متجه العزم الزاوي ثابتاً في الفضاء، وتدور السرعة الزاوية حوله؟)',
         correct: true,
         explanations: [
             'Correct! This describes the typical behavior of a free rigid body.',
@@ -1043,10 +1028,10 @@ const questions = [
     // False (Ch10 - Q3)
     {
         type: 'tf',
-        question: 'The Euler-Lagrange equation is \\( \frac{d}{dt}\left(\frac{\partial L}{\partial q_i}\right) - \frac{\partial L}{\partial \dot{q}_i} = 0 \\). (Ch10 - Q3)\n(بالعربية: معادلة أويلر-لاغرانج هي \\( \frac{d}{dt}\left(\frac{\partial L}{\partial q_i}\right) - \frac{\partial L}{\partial \dot{q}_i} = 0 \\)؟)',
+        question: 'The Euler-Lagrange equation is \\( \\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial q_i}\\right) - \\frac{\\partial L}{\\partial \\dot{q}_i} = 0 \\). (Ch10 - Q3)\n(بالعربية: معادلة أويلر-لاغرانج هي \\( \\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial q_i}\\right) - \\frac{\\partial L}{\\partial \\dot{q}_i} = 0 \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. The correct form is \\( \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right) - \frac{\partial L}{\partial q_i} = 0 \\).',
+            'Incorrect. The correct form is \\( \\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}_i}\\right) - \\frac{\\partial L}{\\partial q_i} = 0 \\).',
             'Correct! The partial derivatives are swapped in the given formula.'
         ]
     },
@@ -1063,7 +1048,7 @@ const questions = [
     // True (Ch10 - Q5)
     {
         type: 'tf',
-        question: 'Hamilton’s equations are another way to represent the dynamics, using \\( q_i \\) and \\( p_i \\) instead of \\( q_i \\) and \\( \dot{q}_i \\). (Ch10 - Q5)\n(بالعربية: معادلات هاميلتون هي طريقة أخرى لتمثيل الديناميكا باستخدام \( q_i \) و \( p_i \) بدلاً من \( q_i \) و \( \dot{q}_i \)؟)',
+        question: 'Hamilton’s equations are another way to represent the dynamics, using \\( q_i \\) and \\( p_i \\) instead of \\( q_i \\) and \\( \\dot{q}_i \\). (Ch10 - Q5)\n(بالعربية: معادلات هاميلتون هي طريقة أخرى لتمثيل الديناميكا باستخدام \\( q_i \\) و \\( p_i \\) بدلاً من \\( q_i \\) و \\( \\dot{q}_i \\)؟)',
         correct: true,
         explanations: [
             'Correct! Hamiltonian mechanics uses generalized momenta.',
@@ -1073,17 +1058,17 @@ const questions = [
     // False (Ch10 - Q6)
     {
         type: 'tf',
-        question: 'The Hamiltonian is defined as \\( H = L - \sum p_i \dot{q}_i \\). (Ch10 - Q6)\n(بالعربية: يعرف الهاملتوني بـ \\( H = L - \sum p_i \dot{q}_i \\)؟)',
+        question: 'The Hamiltonian is defined as \\( H = L - \\sum p_i \\dot{q}_i \\). (Ch10 - Q6)\n(بالعربية: يعرف الهاملتوني بـ \\( H = L - \\sum p_i \\dot{q}_i \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. The correct definition is \\( H = \sum p_i \dot{q}_i - L \\).',
+            'Incorrect. The correct definition is \\( H = \\sum p_i \\dot{q}_i - L \\).',
             'Correct! The sign is reversed in the correct definition.'
         ]
     },
     // True (Ch10 - Q7)
     {
         type: 'tf',
-        question: 'The principle of least action states that the actual path taken by a system makes the action \\( S = \int L \, dt \\) stationary. (Ch10 - Q7)\n(بالعربية: ينص مبدأ أقل فعل على أن المسار الفعلي للنظام يجعل الفعل \( S = \int L dt \) ثابتاً؟)',
+        question: 'The principle of least action states that the actual path taken by a system makes the action \\( S = \\int L \\, dt \\) stationary. (Ch10 - Q7)\n(بالعربية: ينص مبدأ أقل فعل على أن المسار الفعلي للنظام يجعل الفعل \\( S = \\int L \\, dt \\) ثابتاً؟)',
         correct: true,
         explanations: [
             'Correct! This is Hamilton’s principle of stationary action.',
@@ -1093,10 +1078,10 @@ const questions = [
     // False (Ch10 - Q8)
     {
         type: 'tf',
-        question: 'Generalized momenta are defined as \\( p_i = \frac{\partial L}{\partial q_i} \\). (Ch10 - Q8)\n(بالعربية: تعرف الكمية المعممة بالزخم بـ \( p_i = \frac{\partial L}{\partial q_i} \)؟)',
+        question: 'Generalized momenta are defined as \\( p_i = \\frac{\\partial L}{\\partial q_i} \\). (Ch10 - Q8)\n(بالعربية: تعرف الكمية المعممة بالزخم بـ \\( p_i = \\frac{\\partial L}{\\partial q_i} \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. It should be \( p_i = \frac{\partial L}{\partial \dot{q}_i} \).',
+            'Incorrect. It should be \\( p_i = \\frac{\\partial L}{\\partial \\dot{q}_i} \\).',
             'Correct! The correct definition involves the time derivative coordinate.'
         ]
     },
@@ -1153,10 +1138,10 @@ const questions = [
     // False (Ch10 - Q14)
     {
         type: 'tf',
-        question: 'Hamilton’s equations are \\( \dot{p}_i = \frac{\partial H}{\partial p_i} \\) and \\( \dot{q}_i = -\frac{\partial H}{\partial q_i} \\). (Ch10 - Q14)\n(بالعربية: معادلات هاميلتون هي \( \dot{p}_i = \frac{\partial H}{\partial p_i} \) و \( \dot{q}_i = -\frac{\partial H}{\partial q_i} \)؟)',
+        question: 'Hamilton’s equations are \\( \\dot{p}_i = \\frac{\\partial H}{\\partial p_i} \\) and \\( \\dot{q}_i = -\\frac{\\partial H}{\\partial q_i} \\). (Ch10 - Q14)\n(بالعربية: معادلات هاميلتون هي \\( \\dot{p}_i = \\frac{\\partial H}{\\partial p_i} \\) و \\( \\dot{q}_i = -\\frac{\\partial H}{\\partial q_i} \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. Hamilton’s equations are \\( \dot{q}_i = \frac{\partial H}{\partial p_i} \\) and \\( \dot{p}_i = -\frac{\partial H}{\partial q_i} \\).',
+            'Incorrect. Hamilton’s equations are \\( \\dot{q}_i = \\frac{\\partial H}{\\partial p_i} \\) and \\( \\dot{p}_i = -\\frac{\\partial H}{\\partial q_i} \\).',
             'Correct! The signs are swapped for q and p derivatives.'
         ]
     },
@@ -1173,7 +1158,7 @@ const questions = [
     // False (Ch10 - Q16)
     {
         type: 'tf',
-        question: 'If a coordinate appears explicitly in the Lagrangian, the corresponding momentum is conserved. (Ch10 - Q16)\n(بالعربية: إذا ظهر إحداثي بوضوح في اللاغرانجي، فإن زخمه المعمم يكون محفوظاً؟)',
+        question: 'If a coordinate appears explicitly in the Lagrangian, its corresponding momentum is conserved. (Ch10 - Q16)\n(بالعربية: إذا ظهر إحداثي بوضوح في اللاغرانجي، فإن زخمه المعمم يكون محفوظاً؟)',
         correct: false,
         explanations: [
             'Incorrect. If it appears explicitly, it’s not an ignorable coordinate, so no guaranteed conservation.',
@@ -1263,7 +1248,7 @@ const questions = [
     // True (Ch10 - Q25)
     {
         type: 'tf',
-        question: 'The Hamiltonian formulation uses \\( (q_i, p_i) \\) as independent variables instead of \\( (q_i, \dot{q}_i) \\). (Ch10 - Q25)\n(بالعربية: تستخدم صيغة هاميلتون \( q_i, p_i \) كمتغيرات مستقلة بدلاً من \( q_i, \dot{q}_i \)؟)',
+        question: 'The Hamiltonian formulation uses \\( (q_i, p_i) \\) as independent variables instead of \\( (q_i, \\dot{q}_i) \\). (Ch10 - Q25)\n(بالعربية: تستخدم صيغة هاميلتون \\( q_i, p_i \\) كمتغيرات مستقلة بدلاً من \\( q_i, \\dot{q}_i \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is the hallmark of Hamiltonian mechanics.',
@@ -1313,10 +1298,10 @@ const questions = [
     // False (Ch10 - Q30)
     {
         type: 'tf',
-        question: 'A relativistic Lagrangian for a free particle is \( L = -m_0 c^2 \sqrt{1 + \frac{v^2}{c^2}} \). (Ch10 - Q30)\n(بالعربية: اللاغرانجي النسبي لجسيم حر هو \( L = -m_0 c^2 \sqrt{1 + \frac{v^2}{c^2}} \)؟)',
+        question: 'A relativistic Lagrangian for a free particle is \\( L = -m_0 c^2 \\sqrt{1 + \\frac{v^2}{c^2}} \\). (Ch10 - Q30)\n(بالعربية: اللاغرانجي النسبي لجسيم حر هو \\( L = -m_0 c^2 \\sqrt{1 + \\frac{v^2}{c^2}} \\)؟)',
         correct: false,
         explanations: [
-            'Incorrect. The relativistic factor is \( \sqrt{1 - \frac{v^2}{c^2}} \), not plus.',
+            'Incorrect. The relativistic factor is \\( \\sqrt{1 - \\frac{v^2}{c^2}} \\), not plus.',
             'Correct! It should be a minus sign under the square root.'
         ]
     },
@@ -1347,17 +1332,17 @@ const questions = [
     // False (Ch11 - Q3)
     {
         type: 'tf',
-        question: 'A stable equilibrium requires that \\( \frac{d^2V}{dx^2} < 0 \\) at the equilibrium point. (Ch11 - Q3)\n(بالعربية: يتطلب الاتزان المستقر أن يكون \\( \frac{d^2V}{dx^2} < 0 \\) عند نقطة الاتزان؟)',
+        question: 'A stable equilibrium requires that \\( \\frac{d^2V}{dx^2} < 0 \\) at the equilibrium point. (Ch11 - Q3)\n(بالعربية: يتطلب الاتزان المستقر أن يكون \\( \\frac{d^2V}{dx^2} < 0 \\) عند نقطة الاتزان؟)',
         correct: false,
         explanations: [
-            'Incorrect. Stable equilibrium requires \\( \frac{d^2V}{dx^2} > 0 \\).',
+            'Incorrect. Stable equilibrium requires \\( \\frac{d^2V}{dx^2} > 0 \\).',
             'Correct! It should be positive for stability.'
         ]
     },
     // True (Ch11 - Q4)
     {
         type: 'tf',
-        question: 'In simple harmonic motion, the frequency of oscillation is \\( \omega = \sqrt{\frac{k}{m}} \\). (Ch11 - Q4)\n(بالعربية: في الحركة التوافقية البسيطة، تردد التذبذب هو \\( \omega = \sqrt{\frac{k}{m}} \\)؟)',
+        question: 'In simple harmonic motion, the frequency of oscillation is \\( \\omega = \\sqrt{\\frac{k}{m}} \\). (Ch11 - Q4)\n(بالعربية: في الحركة التوافقية البسيطة، تردد التذبذب هو \\( \\omega = \\sqrt{\\frac{k}{m}} \\)؟)',
         correct: true,
         explanations: [
             'Correct! That’s the standard formula for SHM.',
@@ -1407,7 +1392,7 @@ const questions = [
     // True (Ch11 - Q9)
     {
         type: 'tf',
-        question: 'The wave equation in one dimension is \\( \frac{\partial^2 q}{\partial t^2} = v^2 \frac{\partial^2 q}{\partial x^2} \\). (Ch11 - Q9)\n(بالعربية: معادلة الموجة في بعد واحد هي \\( \frac{\partial^2 q}{\partial t^2} = v^2 \frac{\partial^2 q}{\partial x^2} \\)؟)',
+        question: 'The wave equation in one dimension is \\( \\frac{\\partial^2 q}{\\partial t^2} = v^2 \\frac{\\partial^2 q}{\\partial x^2} \\). (Ch11 - Q9)\n(بالعربية: معادلة الموجة في بعد واحد هي \\( \\frac{\\partial^2 q}{\\partial t^2} = v^2 \\frac{\\partial^2 q}{\\partial x^2} \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is the standard wave equation.',
@@ -1437,7 +1422,7 @@ const questions = [
     // False (Ch11 - Q12)
     {
         type: 'tf',
-        question: 'If \\( \frac{d^2V}{dx^2} = 0 \\) at equilibrium, the equilibrium is definitely stable. (Ch11 - Q12)\n(بالعربية: إذا كان \\( \frac{d^2V}{dx^2} = 0 \\) عند الاتزان، فإن الاتزان مستقر بالتأكيد؟)',
+        question: 'If \\( \\frac{d^2V}{dx^2} = 0 \\) at equilibrium, the equilibrium is definitely stable. (Ch11 - Q12)\n(بالعربية: إذا كان \\( \\frac{d^2V}{dx^2} = 0 \\) عند الاتزان، فإن الاتزان مستقر بالتأكيد؟)',
         correct: false,
         explanations: [
             'Incorrect. If the second derivative is zero, we need higher-order terms to decide stability.',
@@ -1537,7 +1522,7 @@ const questions = [
     // True (Ch11 - Q22)
     {
         type: 'tf',
-        question: 'For a given tension and linear mass density, a string’s wave speed is \\( v = \sqrt{\frac{T}{\mu}} \\). (Ch11 - Q22)\n(بالعربية: لشد وكثافة خطية معطيين، سرعة الموجة في وتر هي \\( v = \sqrt{\frac{T}{\mu}} \\)؟)',
+        question: 'For a given tension and linear mass density, a string’s wave speed is \\( v = \\sqrt{\\frac{T}{\\mu}} \\). (Ch11 - Q22)\n(بالعربية: لشد وكثافة خطية معطيين، سرعة الموجة في وتر هي \\( v = \\sqrt{\\frac{T}{\\mu}} \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is the standard formula for wave speed on a string.',
@@ -1547,7 +1532,7 @@ const questions = [
     // True (Ch11 - Q23)
     {
         type: 'tf',
-        question: 'The normal mode frequencies of a string fixed at both ends are given by \\( f_n = \frac{n v}{2L} \\). (Ch11 - Q23)\n(بالعربية: ترددات الأنماط الطبيعية لوتر مثبت من الطرفين هي \\( f_n = \frac{n v}{2L} \\)؟)',
+        question: 'The normal mode frequencies of a string fixed at both ends are given by \\( f_n = \\frac{n v}{2L} \\). (Ch11 - Q23)\n(بالعربية: ترددات الأنماط الطبيعية لوتر مثبت من الطرفين هي \\( f_n = \\frac{n v}{2L} \\)؟)',
         correct: true,
         explanations: [
             'Correct! This is the well-known formula for allowed frequencies.',
@@ -1577,7 +1562,7 @@ const questions = [
     // False (Ch11 - Q26)
     {
         type: 'tf',
-        question: 'An unstable equilibrium occurs if \\( \frac{d^2V}{dx^2} > 0 \\) at the equilibrium point. (Ch11 - Q26)\n(بالعربية: يحدث اتزان غير مستقر إذا كان \\( \frac{d^2V}{dx^2} > 0 \\) عند نقطة الاتزان؟)',
+        question: 'An unstable equilibrium occurs if \\( \\frac{d^2V}{dx^2} > 0 \\) at the equilibrium point. (Ch11 - Q26)\n(بالعربية: يحدث اتزان غير مستقر إذا كان \\( \\frac{d^2V}{dx^2} > 0 \\) عند نقطة الاتزان؟)',
         correct: false,
         explanations: [
             'Incorrect. Positive second derivative indicates stability, not instability.',
@@ -1628,71 +1613,58 @@ const questions = [
 
 
 
-
-
-
-
-
-        let currentQuestionIndex = 0;
-
         function renderQuiz() {
             const quizContent = document.getElementById('quiz-content');
             quizContent.innerHTML = '';
-            const q = questions[currentQuestionIndex];
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question');
 
-            const questionDiv = document.createElement('div');
-            questionDiv.classList.add('question');
+                const questionText = document.createElement('h3');
+                questionText.innerText = `${index + 1}. ${q.question}`;
+                questionDiv.appendChild(questionText);
 
-            const questionText = document.createElement('h3');
-            questionText.innerText = `${currentQuestionIndex + 1}. ${q.question}`;
-            questionDiv.appendChild(questionText);
-
-            if (q.type === 'mcq') {
-                const answersDiv = document.createElement('div');
-                answersDiv.classList.add('answers');
-                q.options.forEach((option, i) => {
+                if (q.type === 'mcq') {
+                    const answersDiv = document.createElement('div');
+                    answersDiv.classList.add('answers');
+                    q.options.forEach((option, i) => {
+                        const button = document.createElement('button');
+                        button.innerText = option;
+                        button.onclick = () => showExplanation(index, i === q.correct);
+                        answersDiv.appendChild(button);
+                    });
+                    questionDiv.appendChild(answersDiv);
+                } else if (q.type === 'tf') {
+                    const answersDiv = document.createElement('div');
+                    answersDiv.classList.add('answers');
+                    ['True', 'False'].forEach((option, i) => {
+                        const button = document.createElement('button');
+                        button.innerText = option;
+                        button.onclick = () => showExplanation(index, (i === 0) === q.correct);
+                        answersDiv.appendChild(button);
+                    });
+                    questionDiv.appendChild(answersDiv);
+                } else if (q.type === 'fib') {
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.placeholder = 'Your answer here';
                     const button = document.createElement('button');
-                    button.innerText = option;
-                    button.onclick = () => showExplanation(currentQuestionIndex, i === q.correct);
-                    answersDiv.appendChild(button);
-                });
-                questionDiv.appendChild(answersDiv);
-            } else if (q.type === 'tf') {
-                const answersDiv = document.createElement('div');
-                answersDiv.classList.add('answers');
-                ['True', 'False'].forEach((option, i) => {
-                    const button = document.createElement('button');
-                    button.innerText = option;
-                    button.onclick = () => showExplanation(currentQuestionIndex, (i === 0) === q.correct);
-                    answersDiv.appendChild(button);
-                });
-                questionDiv.appendChild(answersDiv);
-            } else if (q.type === 'fib') {
-                const input = document.createElement('input');
-                input.type = 'text';
-                input.placeholder = 'Your answer here';
-                const button = document.createElement('button');
-                button.innerText = 'Submit';
-                button.onclick = () => checkFibAnswer(currentQuestionIndex, input.value);
-                questionDiv.appendChild(input);
-                questionDiv.appendChild(button);
-            }
+                    button.innerText = 'Submit';
+                    button.onclick = () => checkFibAnswer(index, input.value);
+                    questionDiv.appendChild(input);
+                    questionDiv.appendChild(button);
+                }
 
-            const explanationDiv = document.createElement('div');
-            explanationDiv.classList.add('explanation');
-            explanationDiv.id = `explanation-${currentQuestionIndex}`;
-            questionDiv.appendChild(explanationDiv);
+                const explanationDiv = document.createElement('div');
+                explanationDiv.classList.add('explanation');
+                explanationDiv.id = `explanation-${index}`;
+                questionDiv.appendChild(explanationDiv);
 
-            quizContent.appendChild(questionDiv);
+                quizContent.appendChild(questionDiv);
+            });
             if (window.MathJax && window.MathJax.typesetPromise) {
-            MathJax.typesetPromise();
-        }
-          document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
-        document.getElementById('next-btn').disabled = currentQuestionIndex === questions.length - 1;
-    
-            // Update navigation buttons
-            document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
-            document.getElementById('next-btn').disabled = currentQuestionIndex === questions.length - 1;
+                MathJax.typesetPromise();
+            }
         }
 
         function showExplanation(index, isCorrect) {
@@ -1719,20 +1691,6 @@ const questions = [
                     ? q.explanations
                     : `Incorrect. The correct answer is ${q.correct}.`;
                 explanationDiv.classList.add(isCorrect ? 'correct' : 'incorrect', 'show');
-            }
-        }
-
-        function nextQuestion() {
-            if (currentQuestionIndex < questions.length - 1) {
-                currentQuestionIndex++;
-                renderQuiz();
-            }
-        }
-
-        function prevQuestion() {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-                renderQuiz();
             }
         }
 
